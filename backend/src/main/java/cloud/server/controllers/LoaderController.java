@@ -1,6 +1,8 @@
 package cloud.server.controllers;
 
+import cloud.server.config.Config;
 import org.apache.coyote.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
@@ -14,13 +16,18 @@ import java.nio.file.StandardCopyOption;
 @RestController
 @CrossOrigin
 public class LoaderController {
+    private final Config config;
 
-    private final String storagePrefix = "CloudStorage/";
+    @Autowired
+    public LoaderController(Config config) {
+        this.config = config;
+    }
+
 
     @PostMapping("/load-file/{login}")
     public ErrorResponse loadFile(@PathVariable String login, @RequestBody MultipartFile file) throws IOException {
         String originalFileName = file.getOriginalFilename();
-        String directory = storagePrefix + login;
+        String directory = config.storagePrefix + login;
         String pathString = directory + "/" + originalFileName;
         File fileDestination = new File(directory);
         if (!fileDestination.exists()) {
