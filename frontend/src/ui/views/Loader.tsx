@@ -12,9 +12,20 @@ const Loader = view(LoaderViewModels)(({viewModel}) => {
   return <HorizontalCenterDiv>
     <VerticalCenterDiv>
       <ColumnDiv>
-        <input placeholder={'Введите свое имя'} onChange={(event) => {setLogin(event.target.value)}}/>
-        <input onChange={(e) => {setFiles(e.target.files)}} type='file'/>
-        <button onClick={async () => {await viewModel.sendFile(login, files)}}>Отправить</button>
+        <input placeholder={'Введите свое имя'} onChange={(event) => {
+          setLogin(event.target.value)
+        }}/>
+
+        <input onChange={(e) => {
+          setFiles(e.target.files)
+        }} type='file' multiple/>
+
+
+        <button onClick={async () => {
+          await viewModel.sendFile(login, files)
+        }}>Отправить
+
+        </button>
         {viewModel.progressStatus.active && <progress max='100' value={viewModel.progressStatus.progress}></progress>}
       </ColumnDiv>
     </VerticalCenterDiv>
