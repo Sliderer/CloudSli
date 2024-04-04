@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bf74f6f-700e-4e85-be28-5399d1114a25" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cloud/server/config/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/DirectoriesCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/DirectoriesScanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/API/DirectoriesAPI.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/src/view_models/helpers/DirectoriesListHolder.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/DirectoriesScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/DirectoriesScanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/LoaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/LoaderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/API/LoaderAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/API/LoaderAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/ui/views/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/views/Loader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/view_models/LoaderViewModels.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/view_models/LoaderViewModels.ts" afterDir="false" />
     </list>
@@ -43,6 +44,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.BackendApplication.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -52,7 +54,7 @@
     &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/OneDrive/Desktop/JavaSems/Seminar_6&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/CloudSli/backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -69,7 +71,20 @@
       <recent name="D:\Projects\CloudSli\backend\src\main\java\com" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.BackendApplication">
+    <configuration name="BackendApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.backend.BackendApplication" />
+      <module name="CloudBackend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.backend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.backend.BackendApplication" />
@@ -77,6 +92,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.BackendApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -94,7 +114,8 @@
       <option name="presentableId" value="Default" />
       <updated>1711297061988</updated>
       <workItem from="1711297062961" duration="12310000" />
-      <workItem from="1711374956531" duration="2366000" />
+      <workItem from="1711374956531" duration="2391000" />
+      <workItem from="1711380669204" duration="36000" />
     </task>
     <servers />
   </component>

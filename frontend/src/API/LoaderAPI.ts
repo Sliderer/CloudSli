@@ -11,8 +11,8 @@ class LoaderAPI extends API{
         super();
     }
 
-    public sendFile = async (login: string, formData: FormData, onUploadProgress: Function) => {
-        await axios.post(SERVER_ADDRESS + `/load-file/${login}`, formData,
+    public sendFile = async (login: string, formData: FormData, path: string, onUploadProgress: Function) => {
+        await LoaderAPI.api.post(`/load-file/${login}/${path}`, formData,
             {
                 onUploadProgress: (progress) => {
                     onUploadProgress(progress)

@@ -24,7 +24,20 @@ public class LoaderController {
     }
 
 
-    @PostMapping("/load-file/{login}")
+    @PostMapping("/load-file/{login}/{path}/")
+    public ErrorResponse loadFile(@PathVariable String login, @PathVariable String path, @RequestBody MultipartFile file) throws IOException {
+        String originalFileName = file.getOriginalFilename();
+        String directory = config.storagePrefix + login + "/" + path;
+        String pathString = directory + "/" + originalFileName;
+        File fileDestination = new File(directory);
+        if (!fileDestination.exists()) {
+            return ErrorResponse.create(new RuntimeException(), HttpStatusCode.valueOf(404), "can not find dir");
+        }
+        Files.copy(file.getInputStream(), Paths.get(pathString), StandardCopyOption.REPLACE_EXISTING);
+        return null;
+    }
+
+    @PostMapping("/load-file/{login}/")
     public ErrorResponse loadFile(@PathVariable String login, @RequestBody MultipartFile file) throws IOException {
         String originalFileName = file.getOriginalFilename();
         String directory = config.storagePrefix + login;

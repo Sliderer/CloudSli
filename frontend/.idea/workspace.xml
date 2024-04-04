@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87869b9c-55fc-44c3-b4da-098610eb58d2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/API/DirectoriesAPI.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view_models/helpers/DirectoriesListHolder.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cloud/server/controllers/DirectoriesScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cloud/server/controllers/DirectoriesScanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cloud/server/controllers/LoaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cloud/server/controllers/LoaderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/LoaderAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/LoaderAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/views/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/views/Loader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view_models/LoaderViewModels.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_models/LoaderViewModels.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

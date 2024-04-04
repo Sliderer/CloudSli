@@ -1,8 +1,11 @@
 import {ViewModel} from "@yoskutik/react-vvm";
-import {makeObservable, observable} from "mobx";
+import {autorun, makeObservable, observable} from "mobx";
 import {injectable} from "tsyringe";
 import LoaderAPI from "../API/LoaderAPI";
 import axios, {AxiosProgressEvent} from "axios";
+import DirectoriesAPI from "../API/DirectoriesAPI";
+import directoriesAPI from "../API/DirectoriesAPI";
+import {DirectoriesListHolder} from "./helpers/DirectoriesListHolder";
 
 @injectable()
 class LoaderViewModels extends ViewModel {
@@ -11,14 +14,43 @@ class LoaderViewModels extends ViewModel {
         progress: 0
     }
 
+    @observable sendedFileNames: string[] = []
 
-    constructor(private app: LoaderAPI) {
+    private path: string = ''
+    private directoriesListHolder
+
+    constructor(private loaderAPI: LoaderAPI, private directoriesAPI: DirectoriesAPI) {
         super()
         makeObservable(this)
-        this.app = new LoaderAPI()
+        this.loaderAPI = new LoaderAPI()
+        this.directoriesAPI = new DirectoriesAPI()
+        this.directoriesListHolder = new DirectoriesListHolder()
+    }
+
+    public getSubDirs = async (login: string) => {
+        await this.directoriesAPI.getSubDirectories(login, this.path).then(
+            response => {
+                if (response.data.length !== 0){
+                    this.directoriesListHolder.addDirectoriesLayer(response.data)
+                }
+            }
+        )
+    }
+
+    public moveToDirectory = (directoryName: string) => {
+        this.path += directoryName + '/';
+    }
+
+    public getLastLayer = () => {
+        return this.directoriesListHolder.getLastLayer()
+    }
+
+    public clearDirectoriesList = () => {
+        this.directoriesListHolder.clearDirectoriesList()
     }
 
     public sendFile = async (login: string, files: FileList | null) => {
+        this.sendedFileNames = []
         if (!files){
             return
         }
@@ -26,10 +58,11 @@ class LoaderViewModels extends ViewModel {
         for (let i = 0; i < files.length; ++i){
             const formData = new FormData()
             formData.append('file', files[i])
-            await this.app.sendFile(login, formData, this.onUploadProgress)
+            await this.loaderAPI.sendFile(login, formData, this.path, this.onUploadProgress)
             this.progressStatus = {
                 active: false, progress: 0
             }
+            this.sendedFileNames.push(files[i].name)
         }
     }
 

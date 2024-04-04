@@ -24,18 +24,26 @@ public class DirectoriesScanner {
         this.config = config;
     }
 
-    @GetMapping("/get-input-dirs/{login}/{path}")
+    @GetMapping("/get-subdirs/{login}/{path}")
     public List<String> getInputDirs(@PathVariable String login, @PathVariable String path) {
+        return scanDirectory(login, path);
+    }
+
+    @GetMapping("/get-subdirs/{login}/")
+    public List<String> getInputDirs(@PathVariable String login) {
+        return scanDirectory(login, "");
+    }
+
+    private List<String> scanDirectory(String login, String path){
         Path pathToDir = Paths.get(config.storagePrefix + login + "/" + path);
         List<String> result = new ArrayList<>();
         try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(pathToDir, (Path file) -> Files.isDirectory(file))) {
             for (Path dirPath: directoryStream){
                 result.add(String.valueOf(dirPath.getFileName()));
             }
-        } catch (Exception e) {
-
+        } catch (IOException e) {
+            return new ArrayList<>();
         }
-
         return result;
     }
 }
