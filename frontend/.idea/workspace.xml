@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87869b9c-55fc-44c3-b4da-098610eb58d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/API/DirectoriesAPI.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view_models/helpers/DirectoriesListHolder.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cloud/server/controllers/DirectoriesScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cloud/server/controllers/DirectoriesScanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cloud/server/controllers/LoaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cloud/server/controllers/LoaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/LoaderAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/LoaderAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/views/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/views/Loader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view_models/LoaderViewModels.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_models/LoaderViewModels.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,22 +34,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.npm start.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Projects\\CloudSli\\frontend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/sliderer/projects/CloudSli/frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "npm.npm start.executor": "Run",
+    "ts.external.directory.path": "D:\\Projects\\CloudSli\\frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Projects\CloudSli\frontend\src" />
@@ -89,6 +82,7 @@
       <updated>1711301956127</updated>
       <workItem from="1711301956948" duration="8384000" />
       <workItem from="1711374950169" duration="961000" />
+      <workItem from="1712355810541" duration="221000" />
     </task>
     <servers />
   </component>
