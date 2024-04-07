@@ -2,6 +2,9 @@ import {action, observable} from "mobx";
 
 export class DirectoriesListHolder{
     @observable private directoriesList: string[][] = []
+    index: number = -1
+
+
 
     public clearDirectoriesList = () => {
         this.directoriesList = []
@@ -9,13 +12,27 @@ export class DirectoriesListHolder{
 
     public addDirectoriesLayer = (layer: string[]) => {
         this.directoriesList.push(layer)
+        this.index++
     }
 
-    public getLastLayer = () => {
-        return this.directoriesList.at( this.directoriesList.length - 1)
+    public getCurrentLayer = () => {
+        console.log('index ' + this.index + ' dirs ' + this.directoriesList)
+        return this.directoriesList.at(this.index)
     }
 
-    public deleteLastLayer = () => {
+    public moveBack = () => {
+        if (this.index > 0){
+            this.index--
+        }
+    }
 
+    public moveNext = () => {
+        if (this.index < this.directoriesList.length){
+            this.index++
+        }
+    }
+
+    public isLastLayer = () => {
+        return this.index === this.directoriesList.length - 1
     }
 }

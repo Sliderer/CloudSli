@@ -7,6 +7,7 @@ import styled from "styled-components";
 interface DirectoriesSelectionPanelProps {
   directories: string[];
   onClose: () => void;
+  onBack: () => void;
   onChooseDirectory: (directory: string) => void;
 }
 
@@ -70,6 +71,7 @@ export class DirectoriesSelectionPanel extends Component<DirectoriesSelectionPan
   };
 
   render = () => {
+    console.log('panel rerender')
     return (
       <div style={this.panelStyle}>
         <div style={this.directoriesGridStyle}>
@@ -82,8 +84,8 @@ export class DirectoriesSelectionPanel extends Component<DirectoriesSelectionPan
         </div>
 
         <div style={this.buttonsPanelStyle}>
-          <this.CloseButton onClick={this.props.onClose}>
-            Отмена
+          <this.CloseButton onClick={this.props.onBack}>
+            Назад
           </this.CloseButton>
           <this.ChooseButton onClick={this.props.onClose}>
             Выбрать

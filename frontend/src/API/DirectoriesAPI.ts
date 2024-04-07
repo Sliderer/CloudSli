@@ -10,8 +10,9 @@ class DirectoriesAPI extends API{
         super();
     }
 
-    public getSubDirectories = async (login: string, currentPath: string) => {
-        return await DirectoriesAPI.api.get<string[]>(`/get-subdirs/${login}/${currentPath}`)
+    public getSubDirectories = async (login: string, currentPath: string[]) => {
+        let path = currentPath.join('/')
+        return await DirectoriesAPI.api.get<string[]>(`/get-subdirs/${login}/${path}`)
     }
 }
 

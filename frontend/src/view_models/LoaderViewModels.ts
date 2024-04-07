@@ -16,7 +16,7 @@ class LoaderViewModels extends ViewModel {
 
     @observable sendedFileNames: string[] = []
 
-    private path: string = ''
+    public path: string[] = []
     private directoriesListHolder
 
     constructor(private loaderAPI: LoaderAPI, private directoriesAPI: DirectoriesAPI) {
@@ -28,26 +28,41 @@ class LoaderViewModels extends ViewModel {
     }
 
     public getSubDirs = async (login: string) => {
+        console.log('path ' + this.path)
         await this.directoriesAPI.getSubDirectories(login, this.path).then(
             response => {
-                if (response.data.length !== 0){
-                    this.directoriesListHolder.addDirectoriesLayer(response.data)
-                }
+                console.log('new data ' + response.data)
+                this.directoriesListHolder.addDirectoriesLayer(response.data)
             }
         )
     }
 
     public moveToDirectory = (directoryName: string) => {
-        this.path += directoryName + '/';
+        this.path.push(directoryName)
     }
 
-    public getLastLayer = () => {
-        return this.directoriesListHolder.getLastLayer()
+    public moveNext = () => {
+        this.directoriesListHolder.moveNext()
+    }
+
+    public moveBack = () => {
+        this.directoriesListHolder.moveBack()
+        this.path.pop()
+    }
+
+    public getCurrentLayer = () => {
+        return this.directoriesListHolder.getCurrentLayer()
     }
 
     public clearDirectoriesList = () => {
         this.directoriesListHolder.clearDirectoriesList()
     }
+
+    public isLastLayer = () => {
+        return this.directoriesListHolder.isLastLayer()
+    }
+
+    
 
     public sendFile = async (login: string, files: FileList | null) => {
         this.sendedFileNames = []
