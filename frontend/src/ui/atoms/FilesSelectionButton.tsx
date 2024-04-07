@@ -1,6 +1,8 @@
 import { ChangeEvent, ChangeEventHandler, Component, InputHTMLAttributes } from "react"
 import CSS from 'csstype'
 import { ColorPalette } from "../../colorPalette"
+import '../styles/fonts.css'
+import styled from "styled-components"
 
 interface FilesSelectionButtonProps {
     onChange: ChangeEventHandler<HTMLInputElement>
@@ -8,17 +10,22 @@ interface FilesSelectionButtonProps {
 
 export class FilesSelectionButton extends Component<FilesSelectionButtonProps>{
 
-    
-    inputFileLabel: CSS.Properties = {
-        background: ColorPalette.white,
-        padding: '10px 20px', 
-        borderRadius: '20px', 
-        textAlign: 'center', 
-    }
+    InputLabel = styled.label`
+        background: ${ColorPalette.white};
+        padding: 10px 20px;
+        border-radius: 5px 20px 20px 5px;
+        text-align: enter;
+        filter: drop-shadow(0px 0px 7px ${ColorPalette.white});
+        &:hover {
+            background: ${ColorPalette.fadedBlue};
+        }
+    `
     
     inputFileSpan: CSS.Properties = {
         color: ColorPalette.darkBlue,
-        textAlign: 'center'
+        textAlign: 'center', 
+        fontFamily: "Jost", 
+        fontSize: '20px'
     }
     
     inputFile: CSS.Properties = {
@@ -31,9 +38,9 @@ export class FilesSelectionButton extends Component<FilesSelectionButtonProps>{
     }
 
     render = () => {
-        return <label style={this.inputFileLabel}>
+        return <this.InputLabel>
                 <input style={this.inputFile} onChange={this.props.onChange} type="file" name="file"/>		
                 <span style={this.inputFileSpan}>Выберите файл</span>
-            </label>
+            </this.InputLabel>
     }
 }

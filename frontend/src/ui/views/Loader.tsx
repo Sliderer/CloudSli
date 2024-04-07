@@ -2,16 +2,19 @@ import React, { ChangeEvent, useState } from "react";
 import "reflect-metadata";
 import LoaderViewModels from "../../view_models/LoaderViewModels";
 import { view } from "@yoskutik/react-vvm";
-import { UpdloadFileButton } from "../moleculas/UpdaloadFileButton";
-import { InputText } from "../moleculas/InputText";
-import { FilesSelectionButton } from "../moleculas/FilesSelectionButton";
-import { DirectoriesSelectiontButton } from "../moleculas/DirectoriesSelectionButton";
+import { UpdloadFileButton } from "../atoms/UpdaloadFileButton";
+import { InputText } from "../atoms/InputText";
+import { FilesSelectionButton } from "../atoms/FilesSelectionButton";
+import { DirectoriesSelectiontButton } from "../atoms/DirectoriesSelectionButton";
 import { ColorPalette } from "../../colorPalette";
+import { Logo } from "../atoms/Logo";
+import { DirectoriesSelectionPanel } from "../moleculas/DirectoriesSelectionPanel";
 
 const Loader = view(LoaderViewModels)(({ viewModel }) => {
   const [files, setFiles] = useState<FileList | null>(null);
   const [login, setLogin] = useState("");
   const [directoriesList, setDirectoriesList] = useState<string[]>([]);
+  const [needToShowDirectories, setNeedToShowDirectories] = useState(false);
 
   const showDirectories = async () => {
     if (login.length !== 0) {
@@ -22,7 +25,13 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
       if (lastLayer) {
         setDirectoriesList(lastLayer);
       }
+
+      setNeedToShowDirectories(true);
     }
+  };
+
+  const closeDirectoriesSelectionPanel = () => {
+    setNeedToShowDirectories(false);
   };
 
   const selectFiles = (e: ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +46,11 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
     await viewModel.sendFile(login, files);
   };
 
-  document.body.style.backgroundColor = ColorPalette.lightBlue;
+  const onChooseDirectory = (directory: string) => {
+    viewModel.moveToDirectory(directory);
+  };
+
+  document.body.style.backgroundColor = ColorPalette.darkBlue;
 
   return (
     <div
@@ -50,11 +63,21 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
         justifyContent: "center",
       }}
     >
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <img src="/cloudIcon.png" />
+      {needToShowDirectories && (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <DirectoriesSelectionPanel
+            directories={directoriesList}
+            onClose={closeDirectoriesSelectionPanel}
+            onChooseDirectory={onChooseDirectory}
+          />
+        </div>
+      )}
+
+      <div style={{ display: "flex", justifyContent: "center", margin: 10 }}>
+        <Logo />
       </div>
 
-      <div style={{ display: "flex", justifyContent: "center", width: 500}}>
+      <div style={{ display: "flex", justifyContent: "center", width: 500 }}>
         <div style={{ display: "grid" }}>
           <InputText placeholder="Введите свое имя" onChange={updateLogin} />
 
@@ -69,20 +92,6 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
           >
             <DirectoriesSelectiontButton onClick={showDirectories} />
             <FilesSelectionButton onChange={selectFiles} />
-
-            <div>
-              {directoriesList.map((directory) => {
-                return (
-                  <button
-                    onClick={() => {
-                      viewModel.moveToDirectory(directory);
-                    }}
-                  >
-                    {directory}
-                  </button>
-                );
-              })}
-            </div>
           </div>
 
           <UpdloadFileButton onClick={uploadFile} />
