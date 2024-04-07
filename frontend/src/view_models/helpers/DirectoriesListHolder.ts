@@ -25,14 +25,4 @@ export class DirectoriesListHolder{
             this.index--
         }
     }
-
-    public moveNext = () => {
-        if (this.index < this.directoriesList.length){
-            this.index++
-        }
-    }
-
-    public isLastLayer = () => {
-        return this.index === this.directoriesList.length - 1
-    }
 }

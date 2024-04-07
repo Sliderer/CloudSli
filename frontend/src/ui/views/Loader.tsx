@@ -22,7 +22,6 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
   const [needToShowDirectories, setNeedToShowDirectories] = useState(false);
 
   const updateDirectoriesList = async () => {
-    
     await viewModel.getSubDirs(login);
 
     const lastLayer = viewModel.getCurrentLayer();
@@ -34,7 +33,7 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
   const showDirectories = async () => {
     if (login.length !== 0) {
       if (viewModel.path.length === 0) {
-        await updateDirectoriesList()
+        await updateDirectoriesList();
       }
       setNeedToShowDirectories(true);
     }
@@ -60,18 +59,18 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
     viewModel.moveToDirectory(directory);
     await updateDirectoriesList();
   };
-  
+
   const onBack = () => {
-    viewModel.moveBack()
-    const currentLayer = viewModel.getCurrentLayer()
-    if (currentLayer){
-      setDirectoriesList(currentLayer)
+    viewModel.moveBack();
+    const currentLayer = viewModel.getCurrentLayer();
+    if (currentLayer) {
+      setDirectoriesList(currentLayer);
     }
-  }
+  };
 
   document.body.style.backgroundColor = ColorPalette.darkBlue;
   document.body.style.margin = "0px";
-  console.log('rerender')
+  console.log("rerender");
   return (
     <>
       <div

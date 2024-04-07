@@ -41,10 +41,6 @@ class LoaderViewModels extends ViewModel {
         this.path.push(directoryName)
     }
 
-    public moveNext = () => {
-        this.directoriesListHolder.moveNext()
-    }
-
     public moveBack = () => {
         this.directoriesListHolder.moveBack()
         this.path.pop()
@@ -57,11 +53,6 @@ class LoaderViewModels extends ViewModel {
     public clearDirectoriesList = () => {
         this.directoriesListHolder.clearDirectoriesList()
     }
-
-    public isLastLayer = () => {
-        return this.directoriesListHolder.isLastLayer()
-    }
-
     
 
     public sendFile = async (login: string, files: FileList | null) => {
