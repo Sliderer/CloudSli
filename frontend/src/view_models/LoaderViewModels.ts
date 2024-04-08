@@ -28,10 +28,8 @@ class LoaderViewModels extends ViewModel {
     }
 
     public getSubDirs = async (login: string) => {
-        console.log('path ' + this.path)
         await this.directoriesAPI.getSubDirectories(login, this.path).then(
             response => {
-                console.log('new data ' + response.data)
                 this.directoriesListHolder.addDirectoriesLayer(response.data)
             }
         )

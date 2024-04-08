@@ -1,7 +1,8 @@
 import {action, observable} from "mobx";
+import {FileSystemObject} from "../../models/FileSystemObject";
 
 export class DirectoriesListHolder{
-    @observable private directoriesList: string[][] = []
+    @observable private directoriesList: FileSystemObject[][] = []
     index: number = -1
 
 
@@ -10,7 +11,7 @@ export class DirectoriesListHolder{
         this.directoriesList = []
     }
 
-    public addDirectoriesLayer = (layer: string[]) => {
+    public addDirectoriesLayer = (layer: FileSystemObject[]) => {
         this.directoriesList.push(layer)
         this.index++
     }
@@ -23,6 +24,7 @@ export class DirectoriesListHolder{
     public moveBack = () => {
         if (this.index > 0){
             this.index--
+            this.directoriesList.pop()
         }
     }
 }

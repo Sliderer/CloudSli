@@ -17,12 +17,13 @@ export class DirectoriesSelectiontButton extends Component<DiresctoriesSelection
     filter: drop-shadow(0px 0px 7px ${ColorPalette.white});
     &:hover {
         background: ${ColorPalette.fadedBlue};
-    }
+    };
+    display: inline-block;
   `;
 
   iconStyle: CSS.Properties = {
-    width: "30px",
-    height: "30px",
+    width: "35px",
+    height: "35px",
   };
 
   render = () => {

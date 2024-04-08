@@ -14,11 +14,12 @@ import {
   Functionality,
   FunctionalityChanger,
 } from "../moleculas/FunctionalityChanger";
+import {FileSystemObject} from "../../models/FileSystemObject";
 
 const Loader = view(LoaderViewModels)(({ viewModel }) => {
   const [files, setFiles] = useState<FileList | null>(null);
   const [login, setLogin] = useState("");
-  const [directoriesList, setDirectoriesList] = useState<string[]>([]);
+  const [fileObjectsList, setFileObjectsListList] = useState<FileSystemObject[]>([]);
   const [needToShowDirectories, setNeedToShowDirectories] = useState(false);
 
   const updateDirectoriesList = async () => {
@@ -26,13 +27,13 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
 
     const lastLayer = viewModel.getCurrentLayer();
     if (lastLayer) {
-      setDirectoriesList(lastLayer);
+      setFileObjectsListList(lastLayer);
     }
   };
 
   const showDirectories = async () => {
     if (login.length !== 0) {
-      if (viewModel.path.length === 0) {
+      if (!viewModel.getCurrentLayer()) {
         await updateDirectoriesList();
       }
       setNeedToShowDirectories(true);
@@ -64,7 +65,7 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
     viewModel.moveBack();
     const currentLayer = viewModel.getCurrentLayer();
     if (currentLayer) {
-      setDirectoriesList(currentLayer);
+      setFileObjectsListList(currentLayer);
     }
   };
 
@@ -86,7 +87,7 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
         {needToShowDirectories && (
           <div style={{ display: "flex", justifyContent: "center" }}>
             <DirectoriesSelectionPanel
-              directories={directoriesList}
+              fileObjects={fileObjectsList}
               onBack={onBack}
               onClose={closeDirectoriesSelectionPanel}
               onChooseDirectory={onChooseDirectory}
@@ -127,12 +128,12 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
                 value={viewModel.progressStatus.progress}
               ></progress>
             )}
-            <div style={{ marginTop: 30, display: "inherit" }}>
-              <FunctionalityChanger
-                onClick={(e) => {}}
-                functionality={Functionality.DownloadFile}
-              />
-            </div>
+            {/*<div style={{ marginTop: 30, display: "inherit" }}>*/}
+            {/*  <FunctionalityChanger*/}
+            {/*    onClick={(e) => {}}*/}
+            {/*    functionality={Functionality.DownloadFile}*/}
+            {/*  />*/}
+            {/*</div>*/}
           </div>
         </div>
       </div>
