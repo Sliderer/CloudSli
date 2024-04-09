@@ -5,6 +5,7 @@ import '../styles/fonts.css'
 import '../styles/animations.css'
 
 interface InputTextProps {
+  defaultValue?: string | null,
   placeholder: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
 }
@@ -15,6 +16,7 @@ export class InputText extends Component<InputTextProps> {
     font-family: Jost;
     height: 40px;
     border-radius: 20px 20px 10px 10px;
+    padding: 5px 20px;
     border: 0px solid;
     outline: none;
     background: ${ColorPalette.white};
@@ -28,17 +30,15 @@ export class InputText extends Component<InputTextProps> {
     &:hover {
         background: ${ColorPalette.fadedBlue}
     };
-    animation: smoothApperanceFromBotton 1s forwards;
+    animation: smoothAppearance 1s forwards, smoothAppearanceFromBottom 1s forwards;
   `
 
   render = () => {
-    let login = localStorage.getItem('login')
-
     return (
       <this.CustomInput
         placeholder={this.props.placeholder}
         onChange={this.props.onChange}
-        defaultValue={login ? login : ''}
+        defaultValue={this.props.defaultValue ? this.props.defaultValue : undefined}
       ></this.CustomInput>
     );
   };

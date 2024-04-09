@@ -20,7 +20,7 @@ export class DirectoriesSelectiontButton extends Component<DiresctoriesSelection
         background: ${ColorPalette.fadedBlue};
     };
     display: inline-block;
-    animation: smoothApperanceFromBotton 1s forwards;
+    animation: smoothAppearance 1s forwards, smoothAppearanceFromBottom 1s forwards;
   `;
 
   iconStyle: CSS.Properties = {

@@ -23,7 +23,7 @@ export class UpdloadFileButton extends Component<UpdloadFileButtonProps>{
         &:hover {
             background: ${ColorPalette.fadedBlue};
         };
-        animation: smoothApperanceFromBotton 1s forwards;
+        animation: smoothAppearance 1s forwards, smoothAppearanceFromBottom 1s forwards;
     `
     
     render = () => {

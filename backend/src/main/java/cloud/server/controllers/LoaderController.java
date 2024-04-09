@@ -27,24 +27,16 @@ public class LoaderController {
     }
 
 
-    @PostMapping("/load-file/{login}/{path}/")
+    @PostMapping("/load-file/{login}/{path}")
     public void loadFile(@PathVariable String login, @PathVariable String path, @RequestBody MultipartFile file, HttpServletResponse response) throws IOException {
-        Thread.ofVirtual().start(()-> {
-            String originalFileName = file.getOriginalFilename();
-            String directory = config.storagePrefix + login + "/" + path;
-            String pathString = directory + "/" + originalFileName;
-            File fileDestination = new File(directory);
-            if (!fileDestination.exists()) {
-                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            }
-            Thread.ofVirtual().start(() -> {
-                try {
-                    Files.copy(file.getInputStream(), Paths.get(pathString), StandardCopyOption.REPLACE_EXISTING);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
-        });
+        String originalFileName = file.getOriginalFilename();
+        String directory = config.storagePrefix + login + "/" + path;
+        String pathString = directory + "/" + originalFileName;
+        File fileDestination = new File(directory);
+        if (!fileDestination.exists()) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        }
+        Files.copy(file.getInputStream(), Paths.get(pathString), StandardCopyOption.REPLACE_EXISTING);
     }
 
     @PostMapping("/load-file/{login}/")

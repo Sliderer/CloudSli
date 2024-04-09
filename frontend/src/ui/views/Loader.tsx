@@ -81,6 +81,15 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
     viewModel.isSendingFiles = false;
   };
 
+  const resetPath = () => {
+    viewModel.resetPath()
+    closeDirectoriesSelectionPanel()
+  }
+
+  const createDirectory = async (name: string) => {
+    await viewModel.createDirectory(login, name)
+  }
+
   document.body.style.backgroundColor = ColorPalette.darkBlue;
   document.body.style.margin = "0px";
 
@@ -114,6 +123,8 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
               onBack={onBack}
               onClose={closeDirectoriesSelectionPanel}
               onChooseDirectory={onChooseDirectory}
+              onExit={resetPath}
+              onCreateDirectory={createDirectory}
             />
           </div>
         )}
@@ -122,15 +133,15 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
           <Logo />
         </div>
 
-        <div style={{ display: "flex", justifyContent: "center", width: 500 }}>
+        <div style={{ display: "flex", justifyContent: "center", width: 500}}>
           <div style={{ display: "grid" }}>
-            <InputText placeholder="Введите свое имя" onChange={updateLogin} />
+            <InputText placeholder="Введите свое имя" onChange={updateLogin} defaultValue={savedLogin} />
 
             <div
               style={{
                 display: "grid",
-                marginTop: "20px",
-                marginBottom: "20px",
+                marginTop: "30px",
+                marginBottom: "30px",
                 gridTemplateColumns: "1fr 2fr",
                 gridGap: "10px",
               }}

@@ -18,7 +18,7 @@ class LoaderViewModels extends ViewModel {
     @observable isSendingFiles: boolean = false
     @observable sendedFileNames: string[] = []
 
-    public path: string[] = []
+    @observable path: string[] = []
     private directoriesListHolder
 
     constructor(private loaderAPI: LoaderAPI, private directoriesAPI: DirectoriesAPI) {
@@ -44,6 +44,7 @@ class LoaderViewModels extends ViewModel {
     public moveBack = () => {
         this.directoriesListHolder.moveBack()
         this.path.pop()
+
     }
 
     public getCurrentLayer = () => {
@@ -53,7 +54,19 @@ class LoaderViewModels extends ViewModel {
     public clearDirectoriesList = () => {
         this.directoriesListHolder.clearDirectoriesList()
     }
-    
+
+    public resetPath = () => {
+        for (let i = 0; i <= this.path.length; ++i){
+            this.directoriesListHolder.moveBack()
+        }
+        console.log(this.getCurrentLayer())
+        this.path = []
+    }
+
+    public createDirectory = async (login: string, name: string) => {
+        const directoryPath = this.path.length === 1 ? this.path.join('/') : '' + name
+        await this.directoriesAPI.createDirectory(login, directoryPath)
+    }
 
     public sendFile = async (login: string, files: FileList | null) => {
         this.progressStatus = {

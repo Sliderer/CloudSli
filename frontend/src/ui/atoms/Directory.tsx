@@ -1,6 +1,7 @@
 import { Component, MouseEventHandler } from "react";
 import CSS from 'csstype'
 import { ColorPalette } from "../../colorPalette";
+import styled from "styled-components";
 
 interface DirectoryProps {
   directoryName: string;
@@ -15,11 +16,27 @@ export class Directory extends Component<DirectoryProps> {
     maxWidth: '150px',
     maxHeight: '150px',
     borderRadius: '10px',
-    display: 'inline-block',
+    display: 'flex',
+    justifyContent: 'center',
     filter: `drop-shadow(0px 2px 7px ${ColorPalette.white})`,
     color: ColorPalette.darkBlue,
     verticalAlign: 'middle',
   }
+
+  DirectoryDiv = styled.div`
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        margin-top: 20px;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+            width: 0;
+        }
+    `
 
   render = () => {
     return (
@@ -29,10 +46,10 @@ export class Directory extends Component<DirectoryProps> {
           this.props.onClick(this.props.directoryName);
         }}
       >
-        <div style={{display: 'grid', justifyContent: 'center', justifyItems: 'center', paddingLeft: 10, paddingRight: 10, marginTop: '20px'}}>
+        <this.DirectoryDiv>
             <img style={{width: 50, height: 50}} src="/directoryIcon.png"/>
             <p style={{wordBreak: 'break-all', textAlign: 'center'}}>{this.props.directoryName}</p>
-        </div>
+        </this.DirectoryDiv>
 
       </div>
     );
