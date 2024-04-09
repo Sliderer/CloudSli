@@ -15,12 +15,16 @@ import {
   FunctionalityChanger,
 } from "../moleculas/FunctionalityChanger";
 import {FileSystemObject} from "../../models/FileSystemObject";
+import {useNavigate, useNavigation} from "react-router-dom";
+import {FilesUploader} from "../moleculas/FilesUploading";
 
 const Loader = view(LoaderViewModels)(({ viewModel }) => {
   const [files, setFiles] = useState<FileList | null>(null);
   const [login, setLogin] = useState("");
   const [fileObjectsList, setFileObjectsListList] = useState<FileSystemObject[]>([]);
   const [needToShowDirectories, setNeedToShowDirectories] = useState(false);
+  const navigate = useNavigate()
+
 
   const updateDirectoriesList = async () => {
     await viewModel.getSubDirs(login);
@@ -53,6 +57,7 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
   };
 
   const uploadFile = async () => {
+    viewModel.isSendingFiles = true
     await viewModel.sendFile(login, files);
   };
 
@@ -71,7 +76,12 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
 
   document.body.style.backgroundColor = ColorPalette.darkBlue;
   document.body.style.margin = "0px";
-  console.log("rerender");
+
+
+  if (viewModel.isSendingFiles){
+    return <FilesUploader sendedFileNames={viewModel.sendedFileNames} progress={viewModel.progressStatus.progress}/>
+  }
+
   return (
     <>
       <div
@@ -118,16 +128,7 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
 
             <UpdloadFileButton onClick={uploadFile} />
 
-            {viewModel.sendedFileNames.map((fileName) => (
-              <p>Файл {fileName} отправлен</p>
-            ))}
 
-            {viewModel.progressStatus.active && (
-              <progress
-                max="100"
-                value={viewModel.progressStatus.progress}
-              ></progress>
-            )}
             {/*<div style={{ marginTop: 30, display: "inherit" }}>*/}
             {/*  <FunctionalityChanger*/}
             {/*    onClick={(e) => {}}*/}

@@ -5,25 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87869b9c-55fc-44c3-b4da-098610eb58d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/cloud/server/enums/FileSystemObjects.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/cloud/server/models/FileSystemObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/cloud/server/scanners/DirectoriesScanner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fileIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/enums/FilesSystemObjects.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/FileSystemObject.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/atoms/File.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/views/FilesUploading.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/moleculas/FilesUploading.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cloud/server/controllers/DirectoriesScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cloud/server/controllers/DirectoriesScannerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/directoryIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/directoryIcon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/DirectoriesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/DirectoriesAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/atoms/DirectoriesSelectionButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/atoms/DirectoriesSelectionButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/atoms/Directory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/atoms/Directory.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/moleculas/DirectoriesSelectionPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/moleculas/DirectoriesSelectionPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/atoms/FilesSelectionButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/atoms/FilesSelectionButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/views/FilesUploading.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/views/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/views/Loader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view_models/LoaderViewModels.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_models/LoaderViewModels.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view_models/helpers/DirectoriesListHolder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_models/helpers/DirectoriesListHolder.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,28 +43,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Projects/CloudSli/frontend/public",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "npm.npm start.executor": "Run",
-    "ts.external.directory.path": "D:\\Projects\\CloudSli\\frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/CloudSli/frontend/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.npm start.executor&quot;: &quot;Run&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Projects\\CloudSli\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Projects\CloudSli\frontend\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\CloudSli\frontend\src\ui\moleculas" />
       <recent name="D:\Projects\CloudSli\frontend\src" />
       <recent name="D:\Projects\CloudSli\frontend\src\ui\views" />
     </key>
@@ -104,6 +96,7 @@
       <workItem from="1711301956948" duration="8384000" />
       <workItem from="1711374950169" duration="961000" />
       <workItem from="1712355810541" duration="221000" />
+      <workItem from="1712646133757" duration="7302000" />
     </task>
     <servers />
   </component>

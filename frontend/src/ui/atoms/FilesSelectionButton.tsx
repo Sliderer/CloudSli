@@ -39,7 +39,7 @@ export class FilesSelectionButton extends Component<FilesSelectionButtonProps>{
 
     render = () => {
         return <this.InputLabel>
-                <input style={this.inputFile} onChange={this.props.onChange} type="file" name="file"/>		
+                <input style={this.inputFile} onChange={this.props.onChange} type="file" name="file" multiple/>
                 <span style={this.inputFileSpan}>Выберите файл</span>
             </this.InputLabel>
     }

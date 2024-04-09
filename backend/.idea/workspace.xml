@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bf74f6f-700e-4e85-be28-5399d1114a25" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../frontend/src/ui/moleculas/FilesUploading.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/DirectoriesScannerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/DirectoriesScannerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/enums/FileSystemObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/enums/FileSystemObjects.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/models/FileSystemObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/models/FileSystemObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/scanners/DirectoriesScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/scanners/DirectoriesScanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/views/FilesUploading.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/views/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/views/Loader.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +73,7 @@
   <component name="RunManager" selected="Application.BackendApplication">
     <configuration name="BackendApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.backend.BackendApplication" />
-      <module name="backend" />
+      <module name="CloudBackend" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.backend.*" />

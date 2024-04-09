@@ -14,6 +14,7 @@ class LoaderViewModels extends ViewModel {
         progress: 0
     }
 
+    @observable isSendingFiles: boolean = false
     @observable sendedFileNames: string[] = []
 
     public path: string[] = []
