@@ -1,8 +1,11 @@
 package cloud.server.controllers;
 
 import cloud.server.config.Config;
+import jakarta.servlet.http.HttpServletResponse;
+
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
@@ -25,31 +28,41 @@ public class LoaderController {
 
 
     @PostMapping("/load-file/{login}/{path}/")
-    public ErrorResponse loadFile(@PathVariable String login, @PathVariable String path, @RequestBody MultipartFile file) throws IOException {
-        String originalFileName = file.getOriginalFilename();
-        String directory = config.storagePrefix + login + "/" + path;
-        String pathString = directory + "/" + originalFileName;
-        File fileDestination = new File(directory);
-        if (!fileDestination.exists()) {
-            return ErrorResponse.create(new RuntimeException(), HttpStatusCode.valueOf(404), "can not find dir");
-        }
-        Files.copy(file.getInputStream(), Paths.get(pathString), StandardCopyOption.REPLACE_EXISTING);
-        return null;
+    public void loadFile(@PathVariable String login, @PathVariable String path, @RequestBody MultipartFile file, HttpServletResponse response) throws IOException {
+        Thread.ofVirtual().start(()-> {
+            String originalFileName = file.getOriginalFilename();
+            String directory = config.storagePrefix + login + "/" + path;
+            String pathString = directory + "/" + originalFileName;
+            File fileDestination = new File(directory);
+            if (!fileDestination.exists()) {
+                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            }
+            Thread.ofVirtual().start(() -> {
+                try {
+                    Files.copy(file.getInputStream(), Paths.get(pathString), StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+        });
     }
 
     @PostMapping("/load-file/{login}/")
-    public ErrorResponse loadFile(@PathVariable String login, @RequestBody MultipartFile file) throws IOException {
-        String originalFileName = file.getOriginalFilename();
-        String directory = config.storagePrefix + login;
-        String pathString = directory + "/" + originalFileName;
-        File fileDestination = new File(directory);
-        if (!fileDestination.exists()) {
-            if (!fileDestination.mkdir()) {
-                return ErrorResponse.create(new RuntimeException(), HttpStatusCode.valueOf(404), "can not create dir");
+    public void loadFile(@PathVariable String login, @RequestBody MultipartFile file, HttpServletResponse response) {
+        try{
+            String originalFileName = file.getOriginalFilename();
+            String directory = config.storagePrefix + login;
+            String pathString = directory + "/" + originalFileName;
+            File fileDestination = new File(directory);
+            if (!fileDestination.exists()) {
+                if (!fileDestination.mkdir()) {
+                    response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                }
             }
+            Files.copy(file.getInputStream(), Paths.get(pathString), StandardCopyOption.REPLACE_EXISTING);
+        } catch(IOException e){
+            e.printStackTrace();
         }
-        Files.copy(file.getInputStream(), Paths.get(pathString), StandardCopyOption.REPLACE_EXISTING);
-        return null;
     }
 
 }
