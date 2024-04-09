@@ -11,7 +11,8 @@ import {DirectoriesListHolder} from "./helpers/DirectoriesListHolder";
 class LoaderViewModels extends ViewModel {
     @observable progressStatus = {
         active: false,
-        progress: 0
+        progress: 0, 
+        isFinished: false
     }
 
     @observable isSendingFiles: boolean = false
@@ -55,6 +56,9 @@ class LoaderViewModels extends ViewModel {
     
 
     public sendFile = async (login: string, files: FileList | null) => {
+        this.progressStatus = {
+            active: false, progress: 0, isFinished: false
+        }
         this.sendedFileNames = []
         if (!files){
             return
@@ -65,15 +69,16 @@ class LoaderViewModels extends ViewModel {
             formData.append('file', files[i])
             await this.loaderAPI.sendFile(login, formData, this.path, this.onUploadProgress)
             this.progressStatus = {
-                active: false, progress: 0
+                active: false, progress: 0, isFinished: false
             }
             this.sendedFileNames.push(files[i].name)
         }
+        this.progressStatus.isFinished = true
     }
 
     private onUploadProgress = (progressEvent: AxiosProgressEvent) => {
         this.progressStatus = {
-            active: true, progress: progressEvent.progress! * 100
+            active: true, progress: progressEvent.progress! * 100, isFinished: false
         }
     }
 

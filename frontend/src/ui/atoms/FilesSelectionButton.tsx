@@ -2,6 +2,7 @@ import { ChangeEvent, ChangeEventHandler, Component, InputHTMLAttributes } from 
 import CSS from 'csstype'
 import { ColorPalette } from "../../colorPalette"
 import '../styles/fonts.css'
+import '../styles/animations.css'
 import styled from "styled-components"
 
 interface FilesSelectionButtonProps {
@@ -18,7 +19,8 @@ export class FilesSelectionButton extends Component<FilesSelectionButtonProps>{
         filter: drop-shadow(0px 0px 7px ${ColorPalette.white});
         &:hover {
             background: ${ColorPalette.fadedBlue};
-        }
+        };
+        animation: smoothApperanceFromBotton 1s forwards;
     `
     
     inputFileSpan: CSS.Properties = {

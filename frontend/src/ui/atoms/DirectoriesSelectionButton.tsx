@@ -2,6 +2,7 @@ import { Component, MouseEventHandler } from "react";
 import CSS from "csstype";
 import { ColorPalette } from "../../colorPalette";
 import styled from "styled-components";
+import '../styles/animations.css'
 
 export interface DiresctoriesSelectionProps {
   onClick: MouseEventHandler<HTMLButtonElement>;
@@ -19,6 +20,7 @@ export class DirectoriesSelectiontButton extends Component<DiresctoriesSelection
         background: ${ColorPalette.fadedBlue};
     };
     display: inline-block;
+    animation: smoothApperanceFromBotton 1s forwards;
   `;
 
   iconStyle: CSS.Properties = {

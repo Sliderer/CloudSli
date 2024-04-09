@@ -2,6 +2,7 @@ import { ChangeEventHandler, Component } from "react";
 import { ColorPalette } from "../../colorPalette";
 import styled from "styled-components";
 import '../styles/fonts.css'
+import '../styles/animations.css'
 
 interface InputTextProps {
   placeholder: string;
@@ -26,14 +27,18 @@ export class InputText extends Component<InputTextProps> {
     };
     &:hover {
         background: ${ColorPalette.fadedBlue}
-    }
+    };
+    animation: smoothApperanceFromBotton 1s forwards;
   `
 
   render = () => {
+    let login = localStorage.getItem('login')
+
     return (
       <this.CustomInput
         placeholder={this.props.placeholder}
         onChange={this.props.onChange}
+        defaultValue={login ? login : ''}
       ></this.CustomInput>
     );
   };

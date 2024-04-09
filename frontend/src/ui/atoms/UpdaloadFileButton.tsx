@@ -2,6 +2,7 @@ import { Component, MouseEventHandler } from "react"
 import { ColorPalette } from "../../colorPalette"
 import CSS from 'csstype'
 import '../styles/fonts.css'
+import '../styles/animations.css'
 import styled from "styled-components"
 
 interface UpdloadFileButtonProps{
@@ -21,7 +22,8 @@ export class UpdloadFileButton extends Component<UpdloadFileButtonProps>{
         font-family: Jost;
         &:hover {
             background: ${ColorPalette.fadedBlue};
-        }
+        };
+        animation: smoothApperanceFromBotton 1s forwards;
     `
     
     render = () => {

@@ -14,17 +14,19 @@ import {
   Functionality,
   FunctionalityChanger,
 } from "../moleculas/FunctionalityChanger";
-import {FileSystemObject} from "../../models/FileSystemObject";
-import {useNavigate, useNavigation} from "react-router-dom";
-import {FilesUploader} from "../moleculas/FilesUploading";
+import { FileSystemObject } from "../../models/FileSystemObject";
+import { useNavigate, useNavigation } from "react-router-dom";
+import { FilesUploader } from "../moleculas/FilesUploading";
 
 const Loader = view(LoaderViewModels)(({ viewModel }) => {
+  const savedLogin = localStorage.getItem("login");
   const [files, setFiles] = useState<FileList | null>(null);
-  const [login, setLogin] = useState("");
-  const [fileObjectsList, setFileObjectsListList] = useState<FileSystemObject[]>([]);
+  const [login, setLogin] = useState(savedLogin ? savedLogin : "");
+  const [fileObjectsList, setFileObjectsListList] = useState<
+    FileSystemObject[]
+  >([]);
   const [needToShowDirectories, setNeedToShowDirectories] = useState(false);
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   const updateDirectoriesList = async () => {
     await viewModel.getSubDirs(login);
@@ -57,7 +59,8 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
   };
 
   const uploadFile = async () => {
-    viewModel.isSendingFiles = true
+    localStorage.setItem("login", login);
+    viewModel.isSendingFiles = true;
     await viewModel.sendFile(login, files);
   };
 
@@ -74,12 +77,22 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
     }
   };
 
+  const closeSendingFiles = () => {
+    viewModel.isSendingFiles = false;
+  };
+
   document.body.style.backgroundColor = ColorPalette.darkBlue;
   document.body.style.margin = "0px";
 
-
-  if (viewModel.isSendingFiles){
-    return <FilesUploader sendedFileNames={viewModel.sendedFileNames} progress={viewModel.progressStatus.progress}/>
+  if (viewModel.isSendingFiles) {
+    return (
+      <FilesUploader
+        onClose={closeSendingFiles}
+        sendedFileNames={viewModel.sendedFileNames}
+        progress={viewModel.progressStatus.progress}
+        isFinished={viewModel.progressStatus.isFinished}
+      />
+    );
   }
 
   return (
@@ -127,14 +140,6 @@ const Loader = view(LoaderViewModels)(({ viewModel }) => {
             </div>
 
             <UpdloadFileButton onClick={uploadFile} />
-
-
-            {/*<div style={{ marginTop: 30, display: "inherit" }}>*/}
-            {/*  <FunctionalityChanger*/}
-            {/*    onClick={(e) => {}}*/}
-            {/*    functionality={Functionality.DownloadFile}*/}
-            {/*  />*/}
-            {/*</div>*/}
           </div>
         </div>
       </div>
