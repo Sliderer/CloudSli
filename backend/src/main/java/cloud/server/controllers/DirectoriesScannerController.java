@@ -1,10 +1,12 @@
 package cloud.server.controllers;
 
 import cloud.server.config.Config;
+import cloud.server.models.FileSystemObject;
+import cloud.server.scanners.DirectoriesScanner;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -15,35 +17,32 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-public class DirectoriesScanner {
+public class DirectoriesScannerController {
 
-    private final Config config;
+
 
     @Autowired
-    public DirectoriesScanner(Config config) {
-        this.config = config;
-    }
+    private DirectoriesScanner directoriesScanner;
 
     @GetMapping("/get-subdirs/{login}/{path}")
-    public List<String> getInputDirs(@PathVariable String login, @PathVariable String path) {
-        return scanDirectory(login, path);
+    public List<FileSystemObject> getInputDirs(@PathVariable String login, @PathVariable String path, HttpServletResponse response) {
+        try{
+            return directoriesScanner.scanDirectory(login, path);
+        } catch (IOException e){
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        }
+        return new ArrayList<>();
     }
 
     @GetMapping("/get-subdirs/{login}/")
-    public List<String> getInputDirs(@PathVariable String login) {
-        return scanDirectory(login, "");
+    public List<FileSystemObject> getInputDirs(@PathVariable String login, HttpServletResponse response) {
+        try{
+            return directoriesScanner.scanDirectory(login, "");
+        } catch (IOException e){
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        }
+        return new ArrayList<>();
     }
 
-    private List<String> scanDirectory(String login, String path){
-        Path pathToDir = Paths.get(config.storagePrefix + login + "/" + path);
-        List<String> result = new ArrayList<>();
-        try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(pathToDir, (Path file) -> Files.isDirectory(file))) {
-            for (Path dirPath: directoryStream){
-                result.add(String.valueOf(dirPath.getFileName()));
-            }
-        } catch (IOException e) {
-            return new ArrayList<>();
-        }
-        return result;
-    }
+
 }

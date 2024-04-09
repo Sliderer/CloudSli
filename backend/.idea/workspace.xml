@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bf74f6f-700e-4e85-be28-5399d1114a25" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../frontend/src/API/DirectoriesAPI.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/view_models/helpers/DirectoriesListHolder.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/DirectoriesScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/DirectoriesScanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/LoaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/LoaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/API/LoaderAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/API/LoaderAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/views/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/views/Loader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/view_models/LoaderViewModels.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/view_models/LoaderViewModels.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/DirectoriesScannerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/DirectoriesScannerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/enums/FileSystemObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/enums/FileSystemObjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/models/FileSystemObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/models/FileSystemObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/scanners/DirectoriesScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/scanners/DirectoriesScanner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -74,7 +70,7 @@
   <component name="RunManager" selected="Application.BackendApplication">
     <configuration name="BackendApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.backend.BackendApplication" />
-      <module name="CloudBackend" />
+      <module name="backend" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.backend.*" />
@@ -116,6 +112,7 @@
       <workItem from="1711297062961" duration="12310000" />
       <workItem from="1711374956531" duration="2391000" />
       <workItem from="1711380669204" duration="36000" />
+      <workItem from="1712561583619" duration="3149000" />
     </task>
     <servers />
   </component>

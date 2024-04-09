@@ -1,2 +1,6 @@
-package cloud.server.enums;public enum FileSystemObjects {
+package cloud.server.enums;
+
+public enum FileSystemObjects {
+    Directory,
+    File
 }
