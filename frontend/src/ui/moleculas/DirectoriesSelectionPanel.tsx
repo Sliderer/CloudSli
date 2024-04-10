@@ -134,12 +134,12 @@ export class DirectoriesSelectionPanel extends Component<DirectoriesSelectionPan
                         <DirectoryCreationPanel callback={finishCreation} onClose={cancelDirectoriesCreation}/>
                         :
                         <>
-                            <div style={{display: 'flex', marginBottom: 10}}>
-                                <button style={{background: ColorPalette.darkBlue, border: 0, float: 'left'}}
+                            <div style={{display: 'flex', marginBottom: 10, height: 40}}>
+                                <button style={{background: ColorPalette.darkBlue, border: 0, position: 'absolute', left: '2%'}}
                                         onClick={createDirectory}>
                                     <img style={this.imagesStyle} src={'/addDirectoryIcon.png'}/>
                                 </button>
-                                <button style={{background: ColorPalette.darkBlue, border: 0, float: 'right'}}
+                                <button style={{background: ColorPalette.darkBlue, border: 0, position: 'absolute', right: '2%'}}
                                         onClick={this.props.onExit}>
                                     <img style={this.imagesStyle} src={'/closeIcon.png'}/>
                                 </button>

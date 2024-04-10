@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState} from "react";
 import "reflect-metadata";
-import LoaderViewModels from "../../view_models/LoaderViewModels";
+import UploaderViewModels from "../../view_models/UploaderViewModels";
 import {view} from "@yoskutik/react-vvm";
 import {UpdloadFileButton} from "../atoms/UpdaloadFileButton";
 import {InputText} from "../atoms/InputText";
@@ -29,7 +29,7 @@ const SelectedFilesDiv = styled.div`
     }
 `
 
-const Loader = view(LoaderViewModels)(({viewModel}) => {
+const Uploader = view(UploaderViewModels)(({viewModel}) => {
     const savedLogin = localStorage.getItem("login");
     const [files, setFiles] = useState<FileList | null>(null);
     const [login, setLogin] = useState(savedLogin ? savedLogin : "");
@@ -205,4 +205,4 @@ const Loader = view(LoaderViewModels)(({viewModel}) => {
     );
 });
 
-export default Loader;
+export default Uploader;

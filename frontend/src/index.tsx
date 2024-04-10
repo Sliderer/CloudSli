@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Loader from './ui/views/Loader';
+import Uploader from './ui/views/Uploader';
 import {FilesUploader} from "./ui/moleculas/FilesUploading";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 const router = createBrowserRouter([
     {
         path: "/load-files",
-        element: <Loader/>
+        element: <Uploader/>
     }
 ])
 
