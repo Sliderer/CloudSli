@@ -5,22 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87869b9c-55fc-44c3-b4da-098610eb58d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/addDirectoryIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/closeIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/atoms/DirectoryCreationPanel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/DirectoriesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/DirectoriesAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/atoms/DirectoriesSelectionButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/atoms/DirectoriesSelectionButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/atoms/Directory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/atoms/Directory.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/atoms/File.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/atoms/File.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/atoms/FilesSelectionButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/atoms/FilesSelectionButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/atoms/InputText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/atoms/InputText.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/atoms/UpdaloadFileButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/atoms/UpdaloadFileButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/atoms/DirectoryCreationPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/atoms/DirectoryCreationPanel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/moleculas/DirectoriesSelectionPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/moleculas/DirectoriesSelectionPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/styles/animations.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/styles/animations.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/moleculas/Footer..tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/moleculas/Footer..tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/views/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/views/Loader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view_models/LoaderViewModels.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/view_models/LoaderViewModels.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +93,8 @@
       <workItem from="1711374950169" duration="961000" />
       <workItem from="1712355810541" duration="221000" />
       <workItem from="1712646133757" duration="7302000" />
-      <workItem from="1712685032828" duration="10680000" />
+      <workItem from="1712685032828" duration="11000000" />
+      <workItem from="1712734516361" duration="8073000" />
     </task>
     <servers />
   </component>

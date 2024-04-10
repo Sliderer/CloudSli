@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bf74f6f-700e-4e85-be28-5399d1114a25" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../frontend/public/addDirectoryIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/public/closeIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/src/ui/atoms/DirectoryCreationPanel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/LoaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/LoaderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/API/DirectoriesAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/API/DirectoriesAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/atoms/DirectoriesSelectionButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/atoms/DirectoriesSelectionButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/atoms/Directory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/atoms/Directory.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/atoms/File.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/atoms/File.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/atoms/FilesSelectionButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/atoms/FilesSelectionButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/atoms/InputText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/atoms/InputText.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/atoms/UpdaloadFileButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/atoms/UpdaloadFileButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/moleculas/DirectoriesSelectionPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/moleculas/DirectoriesSelectionPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/styles/animations.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/styles/animations.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/views/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/views/Loader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/view_models/LoaderViewModels.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/view_models/LoaderViewModels.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,28 +35,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BackendApplication.executor": "Run",
-    "Application.cloud.server.BackendApplication.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.BackendApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Projects/CloudSli/backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.cloud.server.BackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/CloudSli/backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Projects\CloudSli\backend" />

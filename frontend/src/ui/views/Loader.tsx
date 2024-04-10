@@ -1,162 +1,213 @@
-import React, { ChangeEvent, useState } from "react";
+import React, {ChangeEvent, useState} from "react";
 import "reflect-metadata";
 import LoaderViewModels from "../../view_models/LoaderViewModels";
-import { view } from "@yoskutik/react-vvm";
-import { UpdloadFileButton } from "../atoms/UpdaloadFileButton";
-import { InputText } from "../atoms/InputText";
-import { FilesSelectionButton } from "../atoms/FilesSelectionButton";
-import { DirectoriesSelectiontButton } from "../atoms/DirectoriesSelectionButton";
-import { ColorPalette } from "../../colorPalette";
-import { Logo } from "../atoms/Logo";
-import { DirectoriesSelectionPanel } from "../moleculas/DirectoriesSelectionPanel";
-import { Footer } from "../moleculas/Footer.";
+import {view} from "@yoskutik/react-vvm";
+import {UpdloadFileButton} from "../atoms/UpdaloadFileButton";
+import {InputText} from "../atoms/InputText";
+import {FilesSelectionButton} from "../atoms/FilesSelectionButton";
+import {DirectoriesSelectiontButton} from "../atoms/DirectoriesSelectionButton";
+import {ColorPalette} from "../../colorPalette";
+import {Logo} from "../atoms/Logo";
+import {DirectoriesSelectionPanel} from "../moleculas/DirectoriesSelectionPanel";
+import {Footer} from "../moleculas/Footer.";
 import {
-  Functionality,
-  FunctionalityChanger,
+    Functionality,
+    FunctionalityChanger,
 } from "../moleculas/FunctionalityChanger";
-import { FileSystemObject } from "../../models/FileSystemObject";
-import { useNavigate, useNavigation } from "react-router-dom";
-import { FilesUploader } from "../moleculas/FilesUploading";
+import {FileSystemObject} from "../../models/FileSystemObject";
+import {useNavigate, useNavigation} from "react-router-dom";
+import {FilesUploader} from "../moleculas/FilesUploading";
+import styled from "styled-components";
 
-const Loader = view(LoaderViewModels)(({ viewModel }) => {
-  const savedLogin = localStorage.getItem("login");
-  const [files, setFiles] = useState<FileList | null>(null);
-  const [login, setLogin] = useState(savedLogin ? savedLogin : "");
-  const [fileObjectsList, setFileObjectsListList] = useState<
-    FileSystemObject[]
-  >([]);
-  const [needToShowDirectories, setNeedToShowDirectories] = useState(false);
-  const navigate = useNavigate();
-
-  const updateDirectoriesList = async () => {
-    await viewModel.getSubDirs(login);
-
-    const lastLayer = viewModel.getCurrentLayer();
-    if (lastLayer) {
-      setFileObjectsListList(lastLayer);
+const SelectedFilesDiv = styled.div`
+    display: grid;
+    max-height: 300px;
+    overflow-y: scroll;
+    filter: drop-shadow(0px 0px 5px ${ColorPalette.white});
+    &::-webkit-scrollbar {
+        display: none;
     }
-  };
+`
 
-  const showDirectories = async () => {
-    if (login.length !== 0) {
-      if (!viewModel.getCurrentLayer()) {
+const Loader = view(LoaderViewModels)(({viewModel}) => {
+    const savedLogin = localStorage.getItem("login");
+    const [files, setFiles] = useState<FileList | null>(null);
+    const [login, setLogin] = useState(savedLogin ? savedLogin : "");
+    const [fileObjectsList, setFileObjectsListList] = useState<
+        FileSystemObject[]
+    >([]);
+    const [directoryName, setDirectoryName] = useState('')
+    const [needToShowDirectories, setNeedToShowDirectories] = useState(false);
+    const navigate = useNavigate();
+
+    const updateDirectoriesList = async () => {
+        await viewModel.getSubDirs(login);
+
+        const lastLayer = viewModel.getCurrentLayer();
+        if (lastLayer) {
+            setFileObjectsListList(lastLayer);
+        }
+    };
+
+    const showDirectories = async () => {
+        if (login.length !== 0) {
+            if (!viewModel.getCurrentLayer()) {
+                await updateDirectoriesList();
+            }
+            setNeedToShowDirectories(true);
+        }
+    };
+
+    const closeDirectoriesSelectionPanel = () => {
+        setNeedToShowDirectories(false);
+    };
+
+    const selectFiles = (e: ChangeEvent<HTMLInputElement>) => {
+        setFiles(e.target.files);
+    };
+
+    const updateLogin = (event: ChangeEvent<HTMLInputElement>) => {
+        setLogin(event.target.value);
+    };
+
+    const uploadFile = async () => {
+        localStorage.setItem("login", login);
+        viewModel.isSendingFiles = true;
+        setFiles(null)
+        setDirectoryName('')
+        await viewModel.sendFile(login, files);
+    };
+
+    const onChooseDirectory = async (directory: string) => {
+        viewModel.moveToDirectory(directory);
         await updateDirectoriesList();
-      }
-      setNeedToShowDirectories(true);
+        setDirectoryName(directory)
+    };
+
+    const onBack = () => {
+        viewModel.moveBack();
+        const currentLayer = viewModel.getCurrentLayer();
+        if (currentLayer) {
+            setFileObjectsListList(currentLayer);
+        }
+    };
+
+    const closeSendingFiles = () => {
+        viewModel.isSendingFiles = false;
+    };
+
+    const resetPath = () => {
+        viewModel.resetPath()
+        closeDirectoriesSelectionPanel()
     }
-  };
 
-  const closeDirectoriesSelectionPanel = () => {
-    setNeedToShowDirectories(false);
-  };
-
-  const selectFiles = (e: ChangeEvent<HTMLInputElement>) => {
-    setFiles(e.target.files);
-  };
-
-  const updateLogin = (event: ChangeEvent<HTMLInputElement>) => {
-    setLogin(event.target.value);
-  };
-
-  const uploadFile = async () => {
-    localStorage.setItem("login", login);
-    viewModel.isSendingFiles = true;
-    await viewModel.sendFile(login, files);
-  };
-
-  const onChooseDirectory = async (directory: string) => {
-    viewModel.moveToDirectory(directory);
-    await updateDirectoriesList();
-  };
-
-  const onBack = () => {
-    viewModel.moveBack();
-    const currentLayer = viewModel.getCurrentLayer();
-    if (currentLayer) {
-      setFileObjectsListList(currentLayer);
+    const createDirectory = async (name: string) => {
+        await viewModel.createDirectory(login, name)
+        await updateDirectoriesList()
     }
-  };
 
-  const closeSendingFiles = () => {
-    viewModel.isSendingFiles = false;
-  };
+    document.body.style.backgroundColor = ColorPalette.darkBlue;
+    document.body.style.margin = "0px";
 
-  const resetPath = () => {
-    viewModel.resetPath()
-    closeDirectoriesSelectionPanel()
-  }
-
-  const createDirectory = async (name: string) => {
-    await viewModel.createDirectory(login, name)
-  }
-
-  document.body.style.backgroundColor = ColorPalette.darkBlue;
-  document.body.style.margin = "0px";
-
-  if (viewModel.isSendingFiles) {
-    return (
-      <FilesUploader
-        onClose={closeSendingFiles}
-        sendedFileNames={viewModel.sendedFileNames}
-        progress={viewModel.progressStatus.progress}
-        isFinished={viewModel.progressStatus.isFinished}
-      />
-    );
-  }
-
-  return (
-    <>
-      <div
-        style={{
-          position: "absolute",
-          bottom: "50%",
-          left: "50%",
-          right: "50%",
-          display: "grid",
-          justifyContent: "center",
-        }}
-      >
-        {needToShowDirectories && (
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <DirectoriesSelectionPanel
-              fileObjects={fileObjectsList}
-              onBack={onBack}
-              onClose={closeDirectoriesSelectionPanel}
-              onChooseDirectory={onChooseDirectory}
-              onExit={resetPath}
-              onCreateDirectory={createDirectory}
+    if (viewModel.isSendingFiles) {
+        return (
+            <FilesUploader
+                onClose={closeSendingFiles}
+                sendedFileNames={viewModel.sendedFileNames}
+                progress={viewModel.progressStatus.progress}
+                isFinished={viewModel.progressStatus.isFinished}
             />
-          </div>
-        )}
+        );
+    }
 
-        <div style={{ display: "flex", justifyContent: "center", margin: 10 }}>
-          <Logo />
-        </div>
+    let fileNames: string[] = []
+    if (files) {
+        for (let i = 0; i < files.length; ++i) {
+            fileNames.push(files[i].name)
+        }
+    }
 
-        <div style={{ display: "flex", justifyContent: "center", width: 500}}>
-          <div style={{ display: "grid" }}>
-            <InputText placeholder="Введите свое имя" onChange={updateLogin} defaultValue={savedLogin} />
 
+    return (
+        <>
             <div
-              style={{
-                display: "grid",
-                marginTop: "30px",
-                marginBottom: "30px",
-                gridTemplateColumns: "1fr 2fr",
-                gridGap: "10px",
-              }}
+                style={{
+                    position: "absolute",
+                    top: "30%",
+                    left: "50%",
+                    right: "50%",
+                    display: "grid",
+                    justifyContent: "center",
+                }}
             >
-              <DirectoriesSelectiontButton onClick={showDirectories} />
-              <FilesSelectionButton onChange={selectFiles} />
-            </div>
+                {needToShowDirectories && (
+                    <div style={{display: "flex", justifyContent: "center"}}>
+                        <DirectoriesSelectionPanel
+                            fileObjects={fileObjectsList}
+                            onBack={onBack}
+                            onClose={closeDirectoriesSelectionPanel}
+                            onChooseDirectory={onChooseDirectory}
+                            onExit={resetPath}
+                            onCreateDirectory={createDirectory}
+                        />
+                    </div>
+                )}
 
-            <UpdloadFileButton onClick={uploadFile} />
-          </div>
-        </div>
-      </div>
-      <Footer />
-    </>
-  );
+                <div style={{display: "flex", justifyContent: "center", margin: 10}}>
+                    <Logo/>
+                </div>
+
+                <div style={{display: "flex", justifyContent: "center", width: 400}}>
+                    <div style={{display: "grid"}}>
+                        <InputText placeholder="Введите свое имя" onChange={updateLogin} defaultValue={savedLogin}/>
+
+                        <div
+                            style={{
+                                display: "grid",
+                                marginTop: "30px",
+                                gridTemplateColumns: "1fr 2fr",
+                                gridGap: "10px",
+                            }}
+                        >
+                            <DirectoriesSelectiontButton onClick={showDirectories}/>
+                            <FilesSelectionButton onChange={selectFiles}/>
+
+                        </div>
+
+                        <div
+                            style={{
+                                display: "grid",
+                                wordBreak: "break-all",
+                                gridTemplateColumns: "1fr 2fr",
+                                gridGap: "10px",
+                            }}
+                        >
+                            <p style={{
+                                color: ColorPalette.white,
+                                font: 'jost',
+                                textAlign: 'center',
+                                filter: `drop-shadow(0px 0px 5px ${ColorPalette.white})`
+                            }}>{directoryName}</p>
+                            <SelectedFilesDiv>
+                                {
+                                    fileNames.map(file => <p style={{
+                                        color: ColorPalette.white,
+                                        font: 'jost',
+                                        wordBreak: "break-all",
+                                        textAlign: 'left'
+                                    }}>{file}</p>)
+                                }
+                            </SelectedFilesDiv>
+
+                        </div>
+
+                        <UpdloadFileButton onClick={uploadFile}/>
+                    </div>
+                </div>
+            </div>
+            <Footer/>
+        </>
+    );
 });
 
 export default Loader;

@@ -55,13 +55,15 @@ export class DirectoriesSelectionPanel extends Component<DirectoriesSelectionPan
     };
 
     DirectoriesGrid = styled.div`
-        max-width: 600px;
-        display: grid;
-        grid-template-columns: repeat(4, 3fr);
-        gap: 10px;
+        grid-template-columns: repeat(4, 1fr);
         overflow-y: scroll;
-        height: 515px;
-
+        display: grid;
+        gap: 10px;
+        padding: 20px 10px;
+        max-height: 80%;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     `
 
     CloseButton = styled.button`
@@ -115,6 +117,10 @@ export class DirectoriesSelectionPanel extends Component<DirectoriesSelectionPan
             this.setState({openCreationPanel: true})
         }
 
+        const cancelDirectoriesCreation = () => {
+            this.setState({openCreationPanel: false})
+        }
+
         const finishCreation = async (name: string) => {
             this.setState({openCreationPanel: false})
             await this.props.onCreateDirectory(name)
@@ -125,7 +131,7 @@ export class DirectoriesSelectionPanel extends Component<DirectoriesSelectionPan
             <div style={this.panelStyle}>
                 {
                     this.state.openCreationPanel ?
-                        <DirectoryCreationPanel callback={finishCreation}/>
+                        <DirectoryCreationPanel callback={finishCreation} onClose={cancelDirectoriesCreation}/>
                         :
                         <>
                             <div style={{display: 'flex', marginBottom: 10}}>
