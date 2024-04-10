@@ -39,6 +39,7 @@ class LoaderViewModels extends ViewModel {
 
     public moveToDirectory = (directoryName: string) => {
         this.path.push(directoryName)
+        console.log('path ' + this.path)
     }
 
     public moveBack = () => {
@@ -64,11 +65,12 @@ class LoaderViewModels extends ViewModel {
     }
 
     public createDirectory = async (login: string, name: string) => {
-        const directoryPath = this.path.length === 1 ? this.path.join('/') : '' + name
+        const directoryPath = (this.path.length !== 0 ? this.path.join('/') : '') + '/' + name
         await this.directoriesAPI.createDirectory(login, directoryPath)
     }
 
     public sendFile = async (login: string, files: FileList | null) => {
+        console.log(this.path)
         this.progressStatus = {
             active: false, progress: 0, isFinished: false
         }

@@ -2,10 +2,7 @@ package cloud.server.controllers;
 
 import cloud.server.config.Config;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 
@@ -20,12 +17,10 @@ public class DirectoriesCreator {
         this.config = config;
     }
 
-    @PostMapping("/create-dir/{login}/{dirName}")
-    public void createDir(@PathVariable String login, @PathVariable String dirName){
-        String pathToDir = config.storagePrefix + login + "/" + dirName;
+    @PostMapping("/create-dir/{login}")
+    public void createDir(@PathVariable String login, @RequestParam String path){
+        String pathToDir = config.storagePrefix + login + "/" + path;
         File file = new File(pathToDir);
-        if (!file.exists()){
-            file.mkdir();
-        }
+        file.mkdir();
     }
 }

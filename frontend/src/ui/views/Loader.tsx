@@ -51,9 +51,7 @@ const Loader = view(LoaderViewModels)(({viewModel}) => {
 
     const showDirectories = async () => {
         if (login.length !== 0) {
-            if (!viewModel.getCurrentLayer()) {
-                await updateDirectoriesList();
-            }
+            await updateDirectoriesList();
             setNeedToShowDirectories(true);
         }
     };
@@ -86,10 +84,7 @@ const Loader = view(LoaderViewModels)(({viewModel}) => {
 
     const onBack = () => {
         viewModel.moveBack();
-        const currentLayer = viewModel.getCurrentLayer();
-        if (currentLayer) {
-            setFileObjectsListList(currentLayer);
-        }
+        updateDirectoriesList()
     };
 
     const closeSendingFiles = () => {
@@ -126,7 +121,7 @@ const Loader = view(LoaderViewModels)(({viewModel}) => {
             fileNames.push(files[i].name)
         }
     }
-
+    console.log(...viewModel.path)
 
     return (
         <>

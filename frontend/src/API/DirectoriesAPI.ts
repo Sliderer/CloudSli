@@ -13,11 +13,11 @@ class DirectoriesAPI extends API{
 
     public getSubDirectories = async (login: string, currentPath: string[]) => {
         let path = currentPath.join('/')
-        return await DirectoriesAPI.api.get<FileSystemObject[]>(`/get-subdirs/${login}/${path}`)
+        return await DirectoriesAPI.api.get<FileSystemObject[]>(`/get-subdirs/${login}?path=${path}`)
     }
 
     public createDirectory = async (login: string, directoryPath: string) => {
-        return await DirectoriesAPI.api.post(`/create-dir/${login}/${directoryPath}`)
+        return await DirectoriesAPI.api.post(`/create-dir/${login}?path=${directoryPath}`)
     }
 }
 

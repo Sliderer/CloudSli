@@ -32,6 +32,7 @@ public class DirectoriesScanner {
         if (files == null){
             throw new IOException();
         }
+        System.out.println(path);
         for (File file : files.listFiles()){
             String fileName = file.getName();
             if (file.isDirectory()){

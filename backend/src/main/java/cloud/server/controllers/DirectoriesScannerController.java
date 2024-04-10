@@ -17,21 +17,11 @@ public class DirectoriesScannerController {
     @Autowired
     private DirectoriesScanner directoriesScanner;
 
-    @GetMapping("/get-subdirs/{login}/{path}")
-    public List<FileSystemObject> getInputDirs(@PathVariable String login, @PathVariable String path,
+    @GetMapping("/get-subdirs/{login}")
+    public List<FileSystemObject> getInputDirs(@PathVariable String login, @RequestParam String path,
             HttpServletResponse response) {
         try {
             return directoriesScanner.scanDirectory(login, path);
-        } catch (IOException e) {
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-        }
-        return new ArrayList<>();
-    }
-
-    @GetMapping("/get-subdirs/{login}/")
-    public List<FileSystemObject> getInputDirs(@PathVariable String login, HttpServletResponse response) {
-        try {
-            return directoriesScanner.scanDirectory(login, "");
         } catch (IOException e) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }

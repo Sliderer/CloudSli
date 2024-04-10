@@ -1,6 +1,7 @@
 package cloud.server.controllers;
 
 import cloud.server.config.Config;
+import cloud.server.services.LoaderService;
 import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.coyote.Response;
@@ -19,6 +20,10 @@ import java.nio.file.StandardCopyOption;
 @RestController
 @CrossOrigin
 public class LoaderController {
+
+    @Autowired
+    private LoaderService loaderService;
+
     private final Config config;
 
     @Autowired
@@ -26,35 +31,9 @@ public class LoaderController {
         this.config = config;
     }
 
-
-    @PostMapping("/load-file/{login}/{path}")
-    public void loadFile(@PathVariable String login, @PathVariable String path, @RequestBody MultipartFile file, HttpServletResponse response) throws IOException {
-        String originalFileName = file.getOriginalFilename();
-        String directory = config.storagePrefix + login + "/" + path;
-        String pathString = directory + "/" + originalFileName;
-        File fileDestination = new File(directory);
-        if (!fileDestination.exists()) {
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-        }
-        Files.copy(file.getInputStream(), Paths.get(pathString), StandardCopyOption.REPLACE_EXISTING);
-    }
-
-    @PostMapping("/load-file/{login}/")
-    public void loadFile(@PathVariable String login, @RequestBody MultipartFile file, HttpServletResponse response) {
-        try{
-            String originalFileName = file.getOriginalFilename();
-            String directory = config.storagePrefix + login;
-            String pathString = directory + "/" + originalFileName;
-            File fileDestination = new File(directory);
-            if (!fileDestination.exists()) {
-                if (!fileDestination.mkdir()) {
-                    response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-                }
-            }
-            Files.copy(file.getInputStream(), Paths.get(pathString), StandardCopyOption.REPLACE_EXISTING);
-        } catch(IOException e){
-            e.printStackTrace();
-        }
+    @PostMapping("/load-file/{login}")
+    public void loadFile(@PathVariable String login, @RequestParam String path, @RequestBody MultipartFile file) {
+        loaderService.loadFile(file, config, login, path);
     }
 
 }

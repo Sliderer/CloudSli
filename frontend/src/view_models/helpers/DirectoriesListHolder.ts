@@ -17,7 +17,6 @@ export class DirectoriesListHolder{
     }
 
     public getCurrentLayer = () => {
-        console.log('index ' + this.index + ' dirs ' + this.directoriesList)
         return this.directoriesList.at(this.index)
     }
 

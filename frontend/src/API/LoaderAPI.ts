@@ -13,7 +13,8 @@ class LoaderAPI extends API{
 
     public sendFile = async (login: string, formData: FormData, currentPath: string[], onUploadProgress: Function) => {
         const path = currentPath.join('/')
-        await LoaderAPI.api.post(`/load-file/${login}/${path}`, formData,
+        console.log(`request /load-file/${login}/${path}`)
+        await LoaderAPI.api.post(`/load-file/${login}?path=${path}`, formData,
             {
                 onUploadProgress: (progress) => {
                     onUploadProgress(progress)
