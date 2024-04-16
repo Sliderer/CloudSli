@@ -4,9 +4,7 @@ import { ColorPalette } from "../../colorPalette";
 
 export class Footer extends Component {
   divStyle: CSS.Properties = {
-    position: "absolute",
-    top: "100%",
-    marginTop: '100px',
+    marginTop: '300px',
     width: "100%",
   };
 

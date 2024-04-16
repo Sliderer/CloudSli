@@ -63,7 +63,7 @@ export class DirectoryCreationPanel extends Component<DirectoryCreationPanelProp
                 justifyItems: 'center',
                 verticalAlign: 'middle',
                 alignItems: 'center',
-                marginTop: 200
+                marginTop: 100
             }}>
                 <InputText placeholder={'Введите название папки'} onChange={changeName}/>
                 <this.CreateButton onClick={() => {

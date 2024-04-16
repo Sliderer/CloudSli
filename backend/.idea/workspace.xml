@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bf74f6f-700e-4e85-be28-5399d1114a25" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/DownloaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/controllers/DownloaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/server/services/DownloaderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/server/services/DownloaderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/atoms/DirectoryCreationPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/atoms/DirectoryCreationPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/moleculas/DirectoriesSelectionPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/moleculas/DirectoriesSelectionPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/moleculas/FilesUploading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/moleculas/FilesUploading.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/moleculas/Footer..tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/moleculas/Footer..tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/views/Downloader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/views/Downloader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/ui/views/Uploader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ui/views/Uploader.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

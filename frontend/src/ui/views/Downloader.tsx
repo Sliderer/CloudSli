@@ -79,7 +79,7 @@ const Downloader = view(DownloaderViewModel)(({ viewModel }) => {
   };
 
   const onChooseFile = (state: boolean, fileName: string) => {
-    console.log(state, fileName)
+    console.log(state, fileName);
     if (state) {
       viewModel.addFile(fileName);
     } else {
@@ -108,15 +108,15 @@ const Downloader = view(DownloaderViewModel)(({ viewModel }) => {
   }
 
   if (viewModel.downloadedFiles.length !== 0) {
-      const file =
+    const file =
       viewModel.downloadedFiles[viewModel.downloadedFiles.length - 1];
-      // create file link in browser's memory
+    // create file link in browser's memory
     const href = URL.createObjectURL(file.response.data);
 
     // create "a" HTML element with href to file & click
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = href;
-    link.setAttribute('download', file.fileName); //or any other extension
+    link.setAttribute("download", file.fileName); //or any other extension
     document.body.appendChild(link);
     link.click();
 
@@ -144,12 +144,12 @@ const Downloader = view(DownloaderViewModel)(({ viewModel }) => {
           top: "30%",
           left: "50%",
           right: "50%",
-          maxWidth: '80%',
+          maxWidth: "80%",
           display: "grid",
           justifyContent: "center",
         }}
       >
-        {needToShowDirectories && (
+        {needToShowDirectories ? (
           <div style={{ display: "flex", justifyContent: "center" }}>
             <DirectoriesSelectionPanel
               fileObjects={fileObjectsList}
@@ -162,54 +162,63 @@ const Downloader = view(DownloaderViewModel)(({ viewModel }) => {
               isFileChangable={true}
             />
           </div>
-        )}
-
-        <div style={{ display: "flex", justifyContent: "center", margin: 10 }}>
-          <Logo />
-        </div>
-
-        <div style={{ display: "flex", maxWidth: '80%' }}>
-          <div style={{ display: "grid" }}>
-            <InputText
-              placeholder="Введите свое имя"
-              onChange={updateLogin}
-              defaultValue={savedLogin}
-            />
-
+        ) : (
+          <>
             <div
-              style={{
-                display: "grid",
-                marginTop: "30px",
-                marginBottom: "30px",
-              }}
+              style={{ display: "flex", justifyContent: "center", margin: 10 }}
             >
-              <DirectoriesSelectionButton onClick={showDirectories} />
-              <SelectedFilesDiv>
-                {viewModel.files.map((file) => (
-                  <p
-                    style={{
-                      color: ColorPalette.white,
-                      font: "jost",
-                      wordBreak: "break-all",
-                      textAlign: "left",
-                    }}
-                  >
-                    {file.fileName}
-                  </p>
-                ))}
-              </SelectedFilesDiv>
+              <Logo />
             </div>
 
-            <UpdloadFileButton text={"Скачать"} onClick={downloadFile} />
-          </div>
-        </div>
-        <div
-          style={{ display: "flex", justifyContent: "center", marginTop: 50 }}
-        >
-          <FunctionalityChanger functionality={Functionality.UploadFile} />
-        </div>
+            <div style={{ display: "flex", maxWidth: "80%" }}>
+              <div style={{ display: "grid" }}>
+                <InputText
+                  placeholder="Введите свое имя"
+                  onChange={updateLogin}
+                  defaultValue={savedLogin}
+                />
+
+                <div
+                  style={{
+                    display: "grid",
+                    marginTop: "30px",
+                    marginBottom: "30px",
+                  }}
+                >
+                  <DirectoriesSelectionButton onClick={showDirectories} />
+                  <SelectedFilesDiv>
+                    {viewModel.files.map((file) => (
+                      <p
+                        style={{
+                          color: ColorPalette.white,
+                          font: "jost",
+                          wordBreak: "break-all",
+                          textAlign: "left",
+                        }}
+                      >
+                        {file.fileName}
+                      </p>
+                    ))}
+                  </SelectedFilesDiv>
+                </div>
+
+                <UpdloadFileButton text={"Скачать"} onClick={downloadFile} />
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginTop: 50,
+              }}
+            >
+              <FunctionalityChanger functionality={Functionality.UploadFile} />
+            </div>
+            <Footer />
+          </>
+        )}
       </div>
-      <Footer />
+
     </>
   );
 });

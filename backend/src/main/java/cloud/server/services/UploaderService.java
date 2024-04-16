@@ -13,7 +13,6 @@ public class UploaderService {
 
     public void uploadFile(MultipartFile file, Config config, String login, String path){
         String directory = config.storagePrefix + login + "/" + path;
-        System.out.println(directory);
         String originalName = file.getOriginalFilename();
         try{
             byte[] bytes = file.getBytes();

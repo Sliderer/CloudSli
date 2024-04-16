@@ -19,13 +19,14 @@ export class FilesUploader extends Component<FilesUploaderProps> {
     color: ColorPalette.white,
     fontFamily: "Jost",
     fontSize: "20px",
-    width: "1000px",
+    maxWidth: '80%',
     wordBreak: "break-word",
     animation: "smoothAppearance 1s forwards",
     opacity: 0,
   };
 
   mainDivStyle: CSS.Properties = {
+    maxWidth: '80%',
     position: "absolute",
     top: "10%",
     left: "50%",
@@ -111,10 +112,7 @@ export class FilesUploader extends Component<FilesUploaderProps> {
           </ProgressDiv>
           <div
             style={{
-              position: "absolute",
-              top: "120%",
-              left: "50%",
-              right: "50%",
+             
               display: "grid",
               justifyItems: "center",
               alignItems: "center",
@@ -137,8 +135,10 @@ export class FilesUploader extends Component<FilesUploaderProps> {
               </>
             )}
           </div>
+          <Footer />
+
         </div>
-        <Footer />
+
       </div>
     );
   };
