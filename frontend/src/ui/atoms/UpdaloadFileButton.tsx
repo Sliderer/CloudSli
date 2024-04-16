@@ -6,6 +6,7 @@ import '../styles/animations.css'
 import styled from "styled-components"
 
 interface UpdloadFileButtonProps{
+    text: string, 
     onClick: MouseEventHandler<HTMLButtonElement>
 }
 
@@ -28,6 +29,6 @@ export class UpdloadFileButton extends Component<UpdloadFileButtonProps>{
     
     render = () => {
         return <this.UploadButton 
-        onClick={this.props.onClick}>Отправить</this.UploadButton>
+        onClick={this.props.onClick}>{this.props.text}</this.UploadButton>
     }
 }

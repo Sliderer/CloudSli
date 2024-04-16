@@ -1,7 +1,7 @@
 import {ViewModel} from "@yoskutik/react-vvm";
 import {autorun, makeObservable, observable} from "mobx";
 import {injectable} from "tsyringe";
-import LoaderAPI from "../API/LoaderAPI";
+import LoaderAPI from "../API/UploaderAPI";
 import axios, {AxiosProgressEvent} from "axios";
 import DirectoriesAPI from "../API/DirectoriesAPI";
 import directoriesAPI from "../API/DirectoriesAPI";

@@ -14,7 +14,7 @@ export class DirectoriesSelectiontButton extends Component<DiresctoriesSelection
     background: ${ColorPalette.white};
     color: ${ColorPalette.darkBlue};
     border: 0;
-    border-radius: 20px 5px 5px 20px;
+    border-radius: 20px;
     filter: drop-shadow(0px 0px 7px ${ColorPalette.white});
     &:hover {
         background: ${ColorPalette.fadedBlue};

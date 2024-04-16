@@ -14,7 +14,7 @@ export class FilesSelectionButton extends Component<FilesSelectionButtonProps>{
     InputLabel = styled.label`
         background: ${ColorPalette.white};
         padding: 10px 20px;
-        border-radius: 5px 20px 20px 5px;
+        border-radius: 20px;
         text-align: enter;
         filter: drop-shadow(0px 0px 7px ${ColorPalette.white});
         &:hover {

@@ -7,9 +7,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class FileLoader implements Runnable {
+public class FileUploader implements Runnable {
 
-    public FileLoader(String originalName, byte[] bytes, String directory){
+    public FileUploader(String originalName, byte[] bytes, String directory){
         this.bytes = bytes;
         this.originalFileName = originalName;
         this.directory = directory;

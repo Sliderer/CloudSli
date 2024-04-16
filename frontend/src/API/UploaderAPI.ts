@@ -5,7 +5,7 @@ import {SERVER_ADDRESS} from "../config";
 import 'reflect-metadata'
 
 @injectable()
-class LoaderAPI extends API{
+class UploaderAPI extends API{
 
     constructor() {
         super();
@@ -14,7 +14,7 @@ class LoaderAPI extends API{
     public sendFile = async (login: string, formData: FormData, currentPath: string[], onUploadProgress: Function) => {
         const path = currentPath.join('/')
         console.log(`request /load-file/${login}/${path}`)
-        await LoaderAPI.api.post(`/load-file/${login}?path=${path}`, formData,
+        await UploaderAPI.api.post(`/load-file/${login}?path=${path}`, formData,
             {
                 onUploadProgress: (progress) => {
                     onUploadProgress(progress)
@@ -23,4 +23,4 @@ class LoaderAPI extends API{
     }
 }
 
-export default LoaderAPI;
+export default UploaderAPI;

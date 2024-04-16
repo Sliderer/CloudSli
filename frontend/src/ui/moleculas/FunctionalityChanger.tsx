@@ -1,25 +1,44 @@
 import { Component, MouseEventHandler } from "react";
+import { Link, Navigate, useNavigate, useNavigation } from "react-router-dom";
+import '../styles/fonts.css'
+import styled from "styled-components";
+import { ColorPalette } from "../../colorPalette";
 
 export enum Functionality {
-    UploadFile, 
-    DownloadFile
+  UploadFile,
+  DownloadFile,
 }
 
 interface FunctionalityChangerProps {
-    functionality: Functionality,
-    onClick: MouseEventHandler<HTMLButtonElement>
+  functionality: Functionality;
 }
 
-export class FunctionalityChanger extends Component<FunctionalityChangerProps> {
-    
-    render = () => {
-        let title: string = ''
-        if (this.props.functionality === Functionality.DownloadFile){
-            title = 'Загрузить файлы'
-        } else {
-            title = 'Скачать файлы'
-        }
+const StyledLink = styled(Link)`
+    color: ${ColorPalette.white};
+    text-decoration: none !important;
+    outline: none !important;
+    font-family: Jost;
+    font-size: 15px;
+`;
 
-        return <button onClick={this.props.onClick}>{title}</button>
-    }
-}
+export const FunctionalityChanger = ({
+  functionality,
+}: {
+  functionality: Functionality;
+}) => {
+  let title: string = "";
+
+  if (functionality === Functionality.DownloadFile) {
+    title = "Загрузить файлы";
+  } else {
+    title = "Скачать файлы";
+  }
+  const path =
+    functionality === Functionality.DownloadFile
+      ? "/download-files"
+      : "/upload-files";
+
+  return (
+    <StyledLink to={path}>{title}</StyledLink>
+  );
+};

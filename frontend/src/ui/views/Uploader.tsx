@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState} from "react";
 import "reflect-metadata";
-import UploaderViewModels from "../../view_models/UploaderViewModels";
+import UploaderViewModels from "../../view_models/UploaderViewModel";
 import {view} from "@yoskutik/react-vvm";
 import {UpdloadFileButton} from "../atoms/UpdaloadFileButton";
 import {InputText} from "../atoms/InputText";
@@ -141,7 +141,8 @@ const Uploader = view(UploaderViewModels)(({viewModel}) => {
                             fileObjects={fileObjectsList}
                             onBack={onBack}
                             onClose={closeDirectoriesSelectionPanel}
-                            onChooseDirectory={onChooseDirectory}
+                            onDirectoryClick={onChooseDirectory}
+                            onFileClick={(name) => {}}
                             onExit={resetPath}
                             onCreateDirectory={createDirectory}
                         />
@@ -196,8 +197,11 @@ const Uploader = view(UploaderViewModels)(({viewModel}) => {
 
                         </div>
 
-                        <UpdloadFileButton onClick={uploadFile}/>
+                        <UpdloadFileButton text={'Отправить'} onClick={uploadFile}/>
                     </div>
+                </div>
+                <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}>
+                    <FunctionalityChanger functionality={Functionality.DownloadFile}/>
                 </div>
             </div>
             <Footer/>
