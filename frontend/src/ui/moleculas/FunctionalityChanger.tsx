@@ -29,9 +29,9 @@ export const FunctionalityChanger = ({
   let title: string = "";
 
   if (functionality === Functionality.DownloadFile) {
-    title = "Загрузить файлы";
-  } else {
     title = "Скачать файлы";
+  } else {
+    title = "Загрузить файлы";
   }
   const path =
     functionality === Functionality.DownloadFile

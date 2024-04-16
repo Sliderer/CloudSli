@@ -3,7 +3,7 @@ import "reflect-metadata";
 import {view} from "@yoskutik/react-vvm";
 import {UpdloadFileButton} from "../atoms/UpdaloadFileButton";
 import {InputText} from "../atoms/InputText";
-import {DirectoriesSelectiontButton} from "../atoms/DirectoriesSelectionButton";
+import {DirectoriesSelectionButton} from "../atoms/DirectoriesSelectionButton";
 import {ColorPalette} from "../../colorPalette";
 import {Logo} from "../atoms/Logo";
 import {DirectoriesSelectionPanel} from "../moleculas/DirectoriesSelectionPanel";
@@ -159,10 +159,8 @@ const Downloader = view(DownloaderViewModel)(({viewModel}) => {
                                 marginBottom: "30px"
                             }}
                         >
-                            <DirectoriesSelectiontButton onClick={showDirectories}/>
-                        </div>
-
-                        <SelectedFilesDiv>
+                            <DirectoriesSelectionButton onClick={showDirectories}/>
+                            <SelectedFilesDiv>
                                 {
                                     viewModel.files.map(file => <p style={{
                                         color: ColorPalette.white,
@@ -171,7 +169,10 @@ const Downloader = view(DownloaderViewModel)(({viewModel}) => {
                                         textAlign: 'left'
                                     }}>{file.fileName}</p>)
                                 }
-                            </SelectedFilesDiv>
+                        </SelectedFilesDiv>
+                        </div>
+
+
 
                         <UpdloadFileButton text={'Скачать'} onClick={downloadFile}/>
                     </div>

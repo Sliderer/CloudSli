@@ -5,7 +5,7 @@ import {view} from "@yoskutik/react-vvm";
 import {UpdloadFileButton} from "../atoms/UpdaloadFileButton";
 import {InputText} from "../atoms/InputText";
 import {FilesSelectionButton} from "../atoms/FilesSelectionButton";
-import {DirectoriesSelectiontButton} from "../atoms/DirectoriesSelectionButton";
+import {DirectoriesSelectionButton} from "../atoms/DirectoriesSelectionButton";
 import {ColorPalette} from "../../colorPalette";
 import {Logo} from "../atoms/Logo";
 import {DirectoriesSelectionPanel} from "../moleculas/DirectoriesSelectionPanel";
@@ -165,7 +165,7 @@ const Uploader = view(UploaderViewModels)(({viewModel}) => {
                                 gridGap: "10px",
                             }}
                         >
-                            <DirectoriesSelectiontButton onClick={showDirectories}/>
+                            <DirectoriesSelectionButton onClick={showDirectories}/>
                             <FilesSelectionButton onChange={selectFiles}/>
 
                         </div>

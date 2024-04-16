@@ -142,17 +142,19 @@ export class DirectoriesSelectionPanel extends Component<
         ) : (
           <>
             <div style={{ display: "flex", marginBottom: 10, height: 40 }}>
-              <button
-                style={{
-                  background: ColorPalette.darkBlue,
-                  border: 0,
-                  position: "absolute",
-                  left: "2%",
-                }}
-                onClick={createDirectory}
-              >
-                <img style={this.imagesStyle} src={"/addDirectoryIcon.png"} />
-              </button>
+              {this.props.onCreateDirectory != null && (
+                <button
+                  style={{
+                    background: ColorPalette.darkBlue,
+                    border: 0,
+                    position: "absolute",
+                    left: "2%",
+                  }}
+                  onClick={createDirectory}
+                >
+                  <img style={this.imagesStyle} src={"/addDirectoryIcon.png"} />
+                </button>
+              )}
               <button
                 style={{
                   background: ColorPalette.darkBlue,

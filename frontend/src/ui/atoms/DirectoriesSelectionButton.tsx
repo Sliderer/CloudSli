@@ -8,7 +8,7 @@ export interface DiresctoriesSelectionProps {
   onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-export class DirectoriesSelectiontButton extends Component<DiresctoriesSelectionProps> {
+export class DirectoriesSelectionButton extends Component<DiresctoriesSelectionProps> {
 
   SelectionButton = styled.button`
     background: ${ColorPalette.white};
