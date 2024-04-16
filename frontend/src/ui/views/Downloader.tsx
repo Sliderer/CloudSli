@@ -108,15 +108,21 @@ const Downloader = view(DownloaderViewModel)(({ viewModel }) => {
   }
 
   if (viewModel.downloadedFiles.length !== 0) {
-    const file =
+      const file =
       viewModel.downloadedFiles[viewModel.downloadedFiles.length - 1];
-    const url = window.URL.createObjectURL(new Blob([file.response.data]));
-    const link = document.createElement("a");
-    link.href = url;
-    link.setAttribute("download", file.fileName);
+      // create file link in browser's memory
+    const href = URL.createObjectURL(file.response.data);
 
+    // create "a" HTML element with href to file & click
+    const link = document.createElement('a');
+    link.href = href;
+    link.setAttribute('download', file.fileName); //or any other extension
     document.body.appendChild(link);
     link.click();
+
+    // clean up "a" element & remove ObjectURL
+    document.body.removeChild(link);
+    URL.revokeObjectURL(href);
     viewModel.downloadedFiles.pop();
     if (viewModel.downloadFile.length === 0) {
       viewModel.clearSelectedFiles();

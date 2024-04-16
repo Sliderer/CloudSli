@@ -27,8 +27,7 @@ public class DirectoriesScannerController {
         try {
             return directoriesScanner.scanDirectory(login, path);
         } catch (IOException e) {
-            System.out.println("error");
-            System.out.println("path " + path);
+            
             if (path.isEmpty()){
                 directoriesCreator.createDir(login, "");
             } else {

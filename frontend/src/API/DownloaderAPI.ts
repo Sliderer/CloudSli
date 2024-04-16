@@ -12,7 +12,7 @@ class DownloaderAPI extends API{
     }
 
     public downloadFile = async (login: string, file: string) => {
-        let result = await DownloaderAPI.api.get(`/download-file/${login}?path=${file}`);
+        let result = await DownloaderAPI.api.get(`/download-file/${login}?path=${file}`, {responseType: 'blob'});
         return result
     }
 }

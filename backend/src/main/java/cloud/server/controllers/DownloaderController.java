@@ -30,11 +30,13 @@ public class DownloaderController {
     @GetMapping("/download-file/{login}")
     public ResponseEntity loadFile(@PathVariable String login, @RequestParam String path) {
         String filePath = config.storagePrefix + login + "/" + path;
+        System.out.println(filePath);
         try {
             Resource file = new UrlResource(Paths.get(filePath).toUri());
             return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
 				"attachment; filename=\"" + file.getFilename() + "\"").body(file);
         } catch (Exception e) {
+            System.out.println("Error while sending file");
             e.printStackTrace();
         }
         return ResponseEntity.badRequest().body(null);

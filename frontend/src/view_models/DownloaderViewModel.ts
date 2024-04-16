@@ -84,6 +84,7 @@ class DownloaderViewModel extends ViewModel {
     public downloadFile = async (login: string) => {
         for (let file of this.files) {
             let result = await this.downloaderAPI.downloadFile(login, file.filePath)
+            console.log(result.data)
             this.downloadedFiles.push({fileName: file.fileName, response: result})
         }
         this.files = []
