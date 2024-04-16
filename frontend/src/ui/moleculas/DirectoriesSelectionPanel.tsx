@@ -40,10 +40,10 @@ export class DirectoriesSelectionPanel extends Component<
     overlay: "auto",
     zIndex: 2,
     padding: "10px",
-    height: "600px",
-    top: "20%",
-    bottom: '50%',
-    width: "600px",
+    top: "10%",
+    bottom: '10%',
+    maxWidth: "80%",
+    maxHeight: "75%",
     background: ColorPalette.darkBlue,
     filter: `drop-shadow(0px 2px 7px ${ColorPalette.white})`,
     justifyContent: "center",
@@ -77,6 +77,7 @@ export class DirectoriesSelectionPanel extends Component<
     border-bottom-left-radius: 10px;
     filter: drop-shadow(0px -4px 7px ${ColorPalette.white});
     color: ${ColorPalette.darkBlue};
+    font-family: Jost;
 
     &:hover {
       background: ${ColorPalette.fadedBlue};
@@ -89,6 +90,7 @@ export class DirectoriesSelectionPanel extends Component<
     border-bottom-right-radius: 10px;
     filter: drop-shadow(0px -4px 7px ${ColorPalette.white});
     color: ${ColorPalette.darkBlue};
+    font-family: Jost;
 
     &:hover {
       background: ${ColorPalette.fadedBlue};

@@ -2,6 +2,7 @@ import { Component, MouseEventHandler } from "react";
 import CSS from 'csstype'
 import { ColorPalette } from "../../colorPalette";
 import styled from "styled-components";
+import '../styles/fonts.css'
 
 interface DirectoryProps {
   directoryName: string;
@@ -48,7 +49,7 @@ export class Directory extends Component<DirectoryProps> {
       >
         <this.DirectoryDiv>
             <img style={{width: 50, height: 50}} src="/directoryIcon.png"/>
-            <p style={{wordBreak: 'break-all', textAlign: 'center'}}>{this.props.directoryName}</p>
+            <p style={{wordBreak: 'break-all', textAlign: 'center', fontFamily: 'Jost'}}>{this.props.directoryName}</p>
         </this.DirectoryDiv>
 
       </div>

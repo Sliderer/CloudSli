@@ -2,6 +2,7 @@ import { Component, MouseEventHandler } from "react";
 import CSS from "csstype";
 import { ColorPalette } from "../../colorPalette";
 import styled from "styled-components";
+import '../styles/fonts.css'
 
 interface FileProps {
   onClick: (state: boolean, name: string) => void;
@@ -69,7 +70,7 @@ export class File extends Component<FileProps, FileState> {
           }}
         >
           <img style={{ width: 50, height: 50 }} src="/fileIcon.png" />
-          <p style={{ wordBreak: "break-all", textAlign: "center" }}>
+          <p style={{ wordBreak: "break-all", textAlign: "center", fontFamily: 'Jost' }}>
             {this.props.fileName}
           </p>
         </this.FileDiv>

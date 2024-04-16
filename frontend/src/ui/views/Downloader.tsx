@@ -144,6 +144,7 @@ const Downloader = view(DownloaderViewModel)(({ viewModel }) => {
           top: "30%",
           left: "50%",
           right: "50%",
+          maxWidth: '80%',
           display: "grid",
           justifyContent: "center",
         }}
@@ -167,7 +168,7 @@ const Downloader = view(DownloaderViewModel)(({ viewModel }) => {
           <Logo />
         </div>
 
-        <div style={{ display: "flex", justifyContent: "center", width: 400 }}>
+        <div style={{ display: "flex", maxWidth: '80%' }}>
           <div style={{ display: "grid" }}>
             <InputText
               placeholder="Введите свое имя"

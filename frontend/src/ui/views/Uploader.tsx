@@ -131,6 +131,8 @@ const Uploader = view(UploaderViewModels)(({viewModel}) => {
                     top: "30%",
                     left: "50%",
                     right: "50%",
+                    maxWidth: '80%',
+                    width: 'auto',
                     display: "grid",
                     justifyContent: "center",
                 }}
@@ -154,7 +156,7 @@ const Uploader = view(UploaderViewModels)(({viewModel}) => {
                     <Logo/>
                 </div>
 
-                <div style={{display: "flex", justifyContent: "center", width: 400}}>
+                <div style={{display: "flex",  width: '80%'}}>
                     <div style={{display: "grid"}}>
                         <InputText placeholder="Введите свое имя" onChange={updateLogin} defaultValue={savedLogin}/>
 
