@@ -86,6 +86,7 @@ class DownloaderViewModel extends ViewModel {
             let result = await this.downloaderAPI.downloadFile(login, file.filePath)
             this.downloadedFiles.push({fileName: file.fileName, response: result})
         }
+        this.files = []
     }
 
     public clearSelectedFiles = () => {

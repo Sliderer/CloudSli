@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -16,16 +17,25 @@ public class DirectoriesScannerController {
 
     @Autowired
     private DirectoriesScanner directoriesScanner;
+    
+    @Autowired
+    private DirectoriesCreator directoriesCreator;
 
     @GetMapping("/get-subdirs/{login}")
-    public List<FileSystemObject> getInputDirs(@PathVariable String login, @RequestParam String path,
+    public List<FileSystemObject> getInputDirs(@PathVariable String login, @RequestParam(required = false) String path,
             HttpServletResponse response) {
         try {
             return directoriesScanner.scanDirectory(login, path);
         } catch (IOException e) {
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            System.out.println("error");
+            System.out.println("path " + path);
+            if (path.isEmpty()){
+                directoriesCreator.createDir(login, "");
+            } else {
+                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            }
+            
         }
         return new ArrayList<>();
     }
-
 }

@@ -28,12 +28,13 @@ public class DirectoriesScanner {
     public List<FileSystemObject> scanDirectory(String login, String path) throws IOException {
         Path pathToDir = Paths.get(config.storagePrefix + login + "/" + path);
         List<FileSystemObject> result = new ArrayList<>();
-        File files = new File(String.valueOf(pathToDir));
-        if (files == null){
+        File filesDirectory = new File(String.valueOf(pathToDir));
+
+        if (filesDirectory == null || !filesDirectory.isDirectory()){
             throw new IOException();
         }
-        System.out.println(path);
-        for (File file : files.listFiles()){
+        
+        for (File file : filesDirectory.listFiles()){
             String fileName = file.getName();
             if (file.isDirectory()){
                 result.add(new FileSystemObject(FileSystemObjects.Directory, fileName));
