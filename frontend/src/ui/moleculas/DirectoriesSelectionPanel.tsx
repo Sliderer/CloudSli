@@ -13,8 +13,10 @@ interface DirectoriesSelectionPanelProps {
   onClose: () => void;
   onBack: () => void;
   onDirectoryClick: (directory: string) => void;
-  onFileClick: (directory: string) => void;
+  onFileClick: (state: boolean, file: string) => void;
   onExit: () => void;
+  isFileChangable: boolean;
+  activeFiles?: string[];
   onCreateDirectory?: (name: string) => Promise<void>;
 }
 
@@ -34,12 +36,13 @@ export class DirectoriesSelectionPanel extends Component<
   }
 
   panelStyle: CSS.Properties = {
-    position: "absolute",
+    position: "fixed",
     overlay: "auto",
     zIndex: 2,
     padding: "10px",
     height: "600px",
-    top: "-50%",
+    top: "20%",
+    bottom: '50%',
     width: "600px",
     background: ColorPalette.darkBlue,
     filter: `drop-shadow(0px 2px 7px ${ColorPalette.white})`,
@@ -177,10 +180,17 @@ export class DirectoriesSelectionPanel extends Component<
                     />
                   );
                 } else {
+                  const isActive =
+                    this.props.activeFiles != null
+                      ? this.props.activeFiles.includes(fileObject.name)
+                      : false;
+
                   return (
                     <File
                       onClick={this.props.onFileClick}
                       fileName={fileObject.name}
+                      isActive={isActive}
+                      isChangable={this.props.isFileChangable}
                     />
                   );
                 }

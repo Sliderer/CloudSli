@@ -145,6 +145,7 @@ const Uploader = view(UploaderViewModels)(({viewModel}) => {
                             onFileClick={(name) => {}}
                             onExit={resetPath}
                             onCreateDirectory={createDirectory}
+                            isFileChangable={false}
                         />
                     </div>
                 )}

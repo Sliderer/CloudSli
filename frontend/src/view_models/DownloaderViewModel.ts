@@ -73,6 +73,14 @@ class DownloaderViewModel extends ViewModel {
         this.files.push({fileName, filePath: filePath})
     }
 
+    public deleteFile = (fileName: string) => {
+        this.files = this.files.filter(file => file.fileName !== fileName)
+    }
+
+    public getPath = () => {
+        return this.path.join('/')
+    }
+
     public downloadFile = async (login: string) => {
         for (let file of this.files) {
             let result = await this.downloaderAPI.downloadFile(login, file.filePath)

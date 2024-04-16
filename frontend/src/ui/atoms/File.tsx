@@ -4,8 +4,10 @@ import { ColorPalette } from "../../colorPalette";
 import styled from "styled-components";
 
 interface FileProps {
-  onClick: (name: string) => void;
+  onClick: (state: boolean, name: string) => void;
   fileName: string;
+  isActive: boolean;
+  isChangable: boolean;
 }
 
 interface FileState {
@@ -16,7 +18,7 @@ export class File extends Component<FileProps, FileState> {
   constructor(props: FileProps) {
     super(props);
     this.state = {
-      isActive: false,
+      isActive: this.props.isChangable && this.props.isActive,
     };
   }
 
@@ -57,8 +59,13 @@ export class File extends Component<FileProps, FileState> {
       <div style={buttonStyle}>
         <this.FileDiv
           onClick={() => {
-            this.setState({ isActive: !this.state.isActive });
-            this.props.onClick(this.props.fileName);
+            if (this.props.isChangable){
+              this.setState({ isActive: !this.state.isActive }, () => {
+                console.log(this.state.isActive)
+                this.props.onClick(this.state.isActive, this.props.fileName);
+              });
+              
+            }
           }}
         >
           <img style={{ width: 50, height: 50 }} src="/fileIcon.png" />
