@@ -1,7 +1,5 @@
 import {injectable, singleton} from "tsyringe";
 import {API} from "./API";
-import axios from "axios";
-import {SERVER_ADDRESS} from "../config";
 import 'reflect-metadata'
 
 @injectable()
@@ -12,7 +10,7 @@ class DownloaderAPI extends API{
     }
 
     public downloadFile = async (login: string, file: string) => {
-        let result = await DownloaderAPI.api.get(`/download-file/${login}?path=${file}`, {responseType: 'blob'});
+        let result = await DownloaderAPI.storage_api.get(`/download-file/${login}?path=${file}`, {responseType: 'blob'});
         return result
     }
 }
