@@ -6,6 +6,6 @@ COPY ./frontend/package*.json ./
 
 RUN npm install
 
-COPY ./frontend .
+COPY ./frontend .ок
 
 CMD HTTPS=true SSL_CRT_FILE=cert.crt SSL_KEY_FILE=cert.key npm start 
