@@ -4,9 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 
 @Entity
-@Table(name="directories")
+@Table(name="files")
 @Getter
-public class Directory {
+public class File {
     @Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,11 +15,11 @@ public class Directory {
     @Column(name = "name")
     private String name;
 
-    public Directory(String name) {
+    public File(String name) {
         this.name = name;
     }
 
-    public Directory() {
+    public File() {
         this.name = "";
     }
 }

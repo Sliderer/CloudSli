@@ -1,5 +1,6 @@
 package cloud.server.controllers;
 
+import cloud.server.database.DirectoriesRepository;
 import cloud.server.models.FileSystemObject;
 import cloud.server.scanners.DirectoriesScanner;
 import jakarta.servlet.http.HttpServletResponse;
