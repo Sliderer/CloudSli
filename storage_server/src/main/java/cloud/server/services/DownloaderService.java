@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 public class DownloaderService {
 
     public ResponseEntity downloadFile(Config config, String login, String path) throws MalformedURLException {
-        String filePath = config.storagePrefix + login + path;
+        String filePath = config.storagePrefix + login + "/" + path;
         Resource file = new UrlResource(Paths.get(filePath).toUri());
         return ResponseEntity.ok().body(file);
     }

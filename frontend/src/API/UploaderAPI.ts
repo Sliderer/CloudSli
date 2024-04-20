@@ -9,7 +9,7 @@ class UploaderAPI extends API{
         super();
     }
 
-    public sendFile = async (login: string, formData: FormData, currentPath: string[], onUploadProgress: Function) => {
+    public sendFile = async (login: string, fileName: string, formData: FormData, currentPath: string[], onUploadProgress: Function) => {
         const path = currentPath.join('/')
         console.log(`request /load-file/${login}/${path}`)
         await UploaderAPI.storage_api.post(`/load-file/${login}?path=${path}`, formData,
@@ -17,7 +17,15 @@ class UploaderAPI extends API{
                 onUploadProgress: (progress) => {
                     onUploadProgress(progress)
                 }
-            })
+            }).then(
+                () => {
+                    this.sendFileToConfigurationServer(login, path + '/' + fileName)
+                }
+            )
+    }
+
+    private sendFileToConfigurationServer = (login: string, fullPath: string) => {
+        UploaderAPI.configuration_api.post(`/load-file/${login}?path=${fullPath}`)
     }
 }
 

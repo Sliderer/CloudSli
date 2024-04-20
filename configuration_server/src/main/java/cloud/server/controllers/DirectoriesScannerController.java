@@ -25,17 +25,6 @@ public class DirectoriesScannerController {
     @GetMapping("/get-subdirs/{login}")
     public List<FileSystemObject> getInputDirs(@PathVariable String login, @RequestParam(required = false) String path,
             HttpServletResponse response) {
-        try {
-            return directoriesScanner.scanDirectory(login, path);
-        } catch (IOException e) {
-            
-            if (path.isEmpty()){
-                directoriesCreator.createDir(login, "");
-            } else {
-                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            }
-            
-        }
-        return new ArrayList<>();
+        return directoriesScanner.scanDirectory(login, path);
     }
 }
