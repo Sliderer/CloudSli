@@ -2,7 +2,6 @@ package cloud.server.services;
 
 import cloud.server.config.Config;
 import cloud.server.helpers.FileUploader;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 

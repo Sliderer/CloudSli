@@ -1,0 +1,53 @@
+services:
+  postgresql:
+    image:  postgres:16
+    volumes:
+      - ./configuration_server/database-scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5432:5432
+    networks:
+      vpcbr: 
+        ipv4_address: 10.5.0.5
+
+
+  frontend:
+    build: ./frontend
+    ports:
+      - 3000:3000
+    networks:
+      vpcbr: 
+        ipv4_address: 10.5.0.2
+    depends_on:
+      - configuration_server
+      - storage_server
+
+
+  configuration_server:
+    build: ./configuration_server
+    ports:
+      - 8080:8080
+    networks:
+      vpcbr: 
+        ipv4_address: 10.5.0.3
+    depends_on:
+      - postgresql
+
+
+  storage_server:
+    build: ./storage_server
+    ports:
+      - 8090:8090
+    networks:
+      vpcbr: 
+        ipv4_address: 10.5.0.4
+    depends_on:
+      - postgresql
+
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.1/16
+          gateway: 10.5.0.1
