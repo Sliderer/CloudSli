@@ -18,9 +18,6 @@ public class DirectoriesScannerController {
 
     @Autowired
     private DirectoriesScanner directoriesScanner;
-    
-    @Autowired
-    private DirectoriesCreator directoriesCreator;
 
     @GetMapping("/get-subdirs/{login}")
     public List<FileSystemObject> getInputDirs(@PathVariable String login, @RequestParam(required = false) String path,

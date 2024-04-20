@@ -42,8 +42,7 @@ export class DirectoriesSelectionPanel extends Component<
     padding: "10px",
     top: "10%",
     bottom: '0%',
-    minWidth: '200px',
-    maxWidth: "80%",
+    width: '80%',
     minHeight: '200px',
     maxHeight: "80%",
     background: ColorPalette.darkBlue,
@@ -62,9 +61,10 @@ export class DirectoriesSelectionPanel extends Component<
   };
 
   DirectoriesGrid = styled.div`
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     overflow-y: scroll;
     display: grid;
+    width: auto;
     gap: 10px;
     padding: 20px 10px;
     max-height: 80%;
