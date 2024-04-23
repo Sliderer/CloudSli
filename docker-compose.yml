@@ -1,8 +1,10 @@
 services:
   postgresql:
     image:  postgres:16
-    volumes:
-      - ./configuration_server/database-scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=CloudSli
     ports:
       - 5432:5432
     networks:
