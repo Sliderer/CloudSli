@@ -1,1 +1,2 @@
-export const SERVER_ADDRESS = 'http://192.168.0.102:8080/'
+export const CONFIGURATION_SERVER_ADDRESS = 'http://localhost:8080/'
+export const STORAGE_SERVER_ADDRESS = 'http://localhost:8090/'

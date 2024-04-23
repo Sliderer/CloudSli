@@ -82,7 +82,7 @@ class UploaderViewModels extends ViewModel {
         for (let i = 0; i < files.length; ++i){
             const formData = new FormData()
             formData.append('file', files[i])
-            await this.loaderAPI.sendFile(login, formData, this.path, this.onUploadProgress)
+            await this.loaderAPI.sendFile(login, files[i].name, formData, this.path, this.onUploadProgress)
             this.progressStatus = {
                 active: false, progress: 0, isFinished: false
             }

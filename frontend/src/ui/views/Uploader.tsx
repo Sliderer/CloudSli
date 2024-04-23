@@ -65,11 +65,11 @@ const Uploader = view(UploaderViewModels)(({ viewModel }) => {
   };
 
   const updateLogin = (event: ChangeEvent<HTMLInputElement>) => {
+    localStorage.setItem("login", login);
     setLogin(event.target.value);
   };
 
   const uploadFile = async () => {
-    localStorage.setItem("login", login);
     viewModel.isSendingFiles = true;
     setFiles(null);
     setDirectoryName("");

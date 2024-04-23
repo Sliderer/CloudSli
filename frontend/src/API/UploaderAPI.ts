@@ -1,7 +1,5 @@
 import {injectable, singleton} from "tsyringe";
 import {API} from "./API";
-import axios from "axios";
-import {SERVER_ADDRESS} from "../config";
 import 'reflect-metadata'
 
 @injectable()
@@ -11,15 +9,23 @@ class UploaderAPI extends API{
         super();
     }
 
-    public sendFile = async (login: string, formData: FormData, currentPath: string[], onUploadProgress: Function) => {
+    public sendFile = async (login: string, fileName: string, formData: FormData, currentPath: string[], onUploadProgress: Function) => {
         const path = currentPath.join('/')
         console.log(`request /load-file/${login}/${path}`)
-        await UploaderAPI.api.post(`/load-file/${login}?path=${path}`, formData,
+        await UploaderAPI.storage_api.post(`/load-file/${login}?path=${path}`, formData,
             {
                 onUploadProgress: (progress) => {
                     onUploadProgress(progress)
                 }
-            })
+            }).then(
+                () => {
+                    this.sendFileToConfigurationServer(login, path + '/' + fileName)
+                }
+            )
+    }
+
+    private sendFileToConfigurationServer = (login: string, fullPath: string) => {
+        UploaderAPI.configuration_api.post(`/load-file/${login}?path=${fullPath}`)
     }
 }
 
