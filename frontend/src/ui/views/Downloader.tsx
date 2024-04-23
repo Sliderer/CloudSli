@@ -65,6 +65,7 @@ const Downloader = view(DownloaderViewModel)(({ viewModel }) => {
   };
 
   const updateLogin = (event: ChangeEvent<HTMLInputElement>) => {
+    localStorage.setItem("login", login);
     setLogin(event.target.value);
   };
 

@@ -17,7 +17,7 @@ public class FileUploader implements Runnable {
         String pathString = directory + "/" + originalFileName;
         File fileDestination = new File(directory);
         if (!fileDestination.exists()) {
-            if (!fileDestination.mkdir()) {
+            if (!fileDestination.mkdirs()) {
                 return;
             }
         }

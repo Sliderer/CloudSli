@@ -22,7 +22,7 @@ public class FileAdditor {
 
     @PostMapping("/load-file/{login}")
     public void createDir(@PathVariable String login, @RequestParam String path){
-        String pathToDir = config.storagePrefix + login + path;
+        String pathToDir = config.storagePrefix + login + "/" + path;
         System.out.println(pathToDir);
         long count = filesRepository.findAll().stream().filter(file -> file.getName().equals(pathToDir)).count();
         if (count == 0){
